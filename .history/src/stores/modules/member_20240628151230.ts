@@ -33,12 +33,8 @@ export const useMemberStore = defineStore(
     //小程序段配置
     persist: {
       storage: {
-        getItem(key) {
-          return uni.getStorageSync(key)
-        },
-        setItem(key, value) {
-          uni.setStorageSync(key, value)
-        },
+        getItem(key) {},
+        setItem(key, value) {},
       },
     },
   },

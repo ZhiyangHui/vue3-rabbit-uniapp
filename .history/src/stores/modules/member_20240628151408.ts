@@ -37,7 +37,7 @@ export const useMemberStore = defineStore(
           return uni.getStorageSync(key)
         },
         setItem(key, value) {
-          uni.setStorageSync(key, value)
+          return uni.setStorageSync(key, value)
         },
       },
     },
