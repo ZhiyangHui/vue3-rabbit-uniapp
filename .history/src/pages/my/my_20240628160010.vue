@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useMemberStore } from '@/stores'
-import '@/utils/http'
 
 const memberStore = useMemberStore()
 
@@ -19,7 +18,6 @@ const getData = () => {
       @tap="
         memberStore.setProfile({
           nickname: '黑马先锋',
-          token: '123456',
         })
       "
       size="mini"

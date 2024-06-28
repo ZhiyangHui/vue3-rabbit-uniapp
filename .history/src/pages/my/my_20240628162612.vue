@@ -19,7 +19,6 @@ const getData = () => {
       @tap="
         memberStore.setProfile({
           nickname: '黑马先锋',
-          token: '123456',
         })
       "
       size="mini"
