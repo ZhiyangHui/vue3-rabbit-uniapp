@@ -15,8 +15,8 @@ defineProps<{
       v-for="item in list"
       :key="item.id"
     >
-      <image class="icon" :src="item.icon"></image>
-      <text class="text">{{ item.name }}</text>
+      <image class="icon" src="item.icon"></image>
+      <text class="text">居家</text>
     </navigator>
   </view>
 </template>

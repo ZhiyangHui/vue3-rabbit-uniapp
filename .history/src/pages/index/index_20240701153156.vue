@@ -18,7 +18,7 @@ const getHomeBannerData = async () => {
 //获取前台分类数据
 const getHomeCategoryData = async () => {
   const res = await getHomeCategoryAPI()
-  categoryList.value = res.result
+  categorytList.value = res.result
 }
 
 onLoad(() => {
@@ -28,7 +28,7 @@ onLoad(() => {
 
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
-  <CategoryPanel :list="categoryList"></CategoryPanel>
+  <CategoryPanel></CategoryPanel>
   <view class="index">index</view>
 </template>
 

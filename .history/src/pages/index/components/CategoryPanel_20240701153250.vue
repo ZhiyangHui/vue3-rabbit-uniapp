@@ -12,11 +12,14 @@ defineProps<{
       class="category-item"
       hover-class="none"
       url="/pages/index/index"
-      v-for="item in list"
-      :key="item.id"
+      v-for="item in 10"
+      :key="item"
     >
-      <image class="icon" :src="item.icon"></image>
-      <text class="text">{{ item.name }}</text>
+      <image
+        class="icon"
+        src="https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/images/nav_icon_1.png"
+      ></image>
+      <text class="text">居家</text>
     </navigator>
   </view>
 </template>

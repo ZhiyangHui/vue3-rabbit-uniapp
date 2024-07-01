@@ -7,7 +7,7 @@ import type { BannerItem, CategoryItem } from '@/types/home'
 import CategoryPanel from './components/CategoryPanel.vue'
 
 const bannerList = ref<BannerItem[]>([])
-const categoryList = ref<CategoryItem[]>([])
+const categortList = ref<CategoryItem[]>([])
 
 //获取轮播图数据
 const getHomeBannerData = async () => {
@@ -18,7 +18,6 @@ const getHomeBannerData = async () => {
 //获取前台分类数据
 const getHomeCategoryData = async () => {
   const res = await getHomeCategoryAPI()
-  categoryList.value = res.result
 }
 
 onLoad(() => {
@@ -28,7 +27,7 @@ onLoad(() => {
 
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
-  <CategoryPanel :list="categoryList"></CategoryPanel>
+  <CategoryPanel></CategoryPanel>
   <view class="index">index</view>
 </template>
 

@@ -28,7 +28,7 @@ onLoad(() => {
 
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
-  <CategoryPanel :list="categoryList"></CategoryPanel>
+  <CategoryPanel></CategoryPanel>
   <view class="index">index</view>
 </template>
 
