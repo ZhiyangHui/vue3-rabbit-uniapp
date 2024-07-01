@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import XtxSwiper from '@/components/XtxSwiper.vue'
-
 //
 </script>
 

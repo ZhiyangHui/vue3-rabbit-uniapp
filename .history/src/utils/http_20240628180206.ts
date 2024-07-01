@@ -54,17 +54,9 @@ export const http = <T>(options: UniApp.RequestOptions) => {
         } else {
           uni.showToast({
             icon: 'none',
-            title: (res.data as Data<T>).msg || '请求错误',
+            title: (res.data as Data<T>).msf,
           })
-          reject(res)
         }
-      },
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误',
-        })
-        reject(err)
       },
     })
   })

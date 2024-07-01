@@ -5,11 +5,10 @@ import { http } from '@/utils/http'
 const memberStore = useMemberStore()
 
 const getData = async () => {
-  const res = await http<string[]>({
+  const res = await http({
     method: 'GET',
     url: '/home/banner',
   })
-  console.log('success', res)
 }
 </script>
 

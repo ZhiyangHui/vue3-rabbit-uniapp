@@ -30,41 +30,13 @@ uni.addInterceptor('request', httpInterceptor)
 uni.addInterceptor('uploadFile', httpInterceptor)
 
 //请求函数的封装
-//添加泛型
-
-interface Data<T> {
-  code: string
-  msg: string
-  result: T
-}
-
-export const http = <T>(options: UniApp.RequestOptions) => {
-  return new Promise<Data<T>>((resolve, reject) => {
+export const http = (options: UniApp.RequestOptions) => {
+  return new Promise((resolve, reject) => {
     uni.request({
       ...options,
       //请求成功
       success(res) {
-        if (res.statusCode >= 200 && res.statusCode < 300) {
-          resolve(res.data as Data<T>)
-        } else if (res.statusCode === 401) {
-          const memberStore = useMemberStore()
-          memberStore.clearProfile()
-          uni.navigateTo({ url: '/pages/login/login' })
-          reject(res)
-        } else {
-          uni.showToast({
-            icon: 'none',
-            title: (res.data as Data<T>).msg || '请求错误',
-          })
-          reject(res)
-        }
-      },
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误',
-        })
-        reject(err)
+        resolve(res?.data)
       },
     })
   })

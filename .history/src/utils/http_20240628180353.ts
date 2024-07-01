@@ -64,7 +64,6 @@ export const http = <T>(options: UniApp.RequestOptions) => {
           icon: 'none',
           title: '网络错误',
         })
-        reject(err)
       },
     })
   })

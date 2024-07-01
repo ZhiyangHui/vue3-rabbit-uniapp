@@ -51,20 +51,7 @@ export const http = <T>(options: UniApp.RequestOptions) => {
           memberStore.clearProfile()
           uni.navigateTo({ url: '/pages/login/login' })
           reject(res)
-        } else {
-          uni.showToast({
-            icon: 'none',
-            title: (res.data as Data<T>).msg || '请求错误',
-          })
-          reject(res)
         }
-      },
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误',
-        })
-        reject(err)
       },
     })
   })

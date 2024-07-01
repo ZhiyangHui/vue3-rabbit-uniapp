@@ -4,12 +4,11 @@ import { http } from '@/utils/http'
 
 const memberStore = useMemberStore()
 
-const getData = async () => {
-  const res = await http<string[]>({
+const getData = () => {
+  uni.request({
     method: 'GET',
     url: '/home/banner',
   })
-  console.log('success', res)
 }
 </script>
 

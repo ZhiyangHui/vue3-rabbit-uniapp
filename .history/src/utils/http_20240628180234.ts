@@ -59,13 +59,6 @@ export const http = <T>(options: UniApp.RequestOptions) => {
           reject(res)
         }
       },
-      fail(err) {
-        uni.showToast({
-          icon: 'none',
-          title: '网络错误',
-        })
-        reject(err)
-      },
     })
   })
 }
