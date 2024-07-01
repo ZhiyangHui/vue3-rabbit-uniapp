@@ -20,12 +20,9 @@ onLoad(() => {
 
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
-  <CategoryPanel></CategoryPanel>
   <view class="index">index</view>
 </template>
 
 <style lang="scss">
-page {
-  background-color: #f7f7f7;
-}
+//
 </style>

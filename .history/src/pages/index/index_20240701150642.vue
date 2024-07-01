@@ -25,7 +25,5 @@ onLoad(() => {
 </template>
 
 <style lang="scss">
-page {
-  background-color: #f7f7f7;
-}
+//
 </style>
