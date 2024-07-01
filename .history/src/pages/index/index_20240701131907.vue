@@ -3,13 +3,11 @@ import XtxSwiper from '@/components/XtxSwiper.vue'
 import { getHomeBannerAPI } from '@/apis/home'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import type { BannerItem } from '@/types/home'
-
-const bannerList = ref<BannerItem[]>([])
+const bannerList = ref([])
 
 const getHomeBannerData = async () => {
   const res = await getHomeBannerAPI()
-  bannerList.value = res.result
+  console.log(res)
 }
 
 onLoad(() => {
@@ -18,7 +16,7 @@ onLoad(() => {
 </script>
 
 <template>
-  <XtxSwiper :list="bannerList"></XtxSwiper>
+  <XtxSwiper></XtxSwiper>
   <view class="index">index</view>
 </template>
 

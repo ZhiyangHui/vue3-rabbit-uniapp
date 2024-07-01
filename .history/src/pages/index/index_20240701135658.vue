@@ -18,7 +18,7 @@ onLoad(() => {
 </script>
 
 <template>
-  <XtxSwiper :list="bannerList"></XtxSwiper>
+  <XtxSwiper></XtxSwiper>
   <view class="index">index</view>
 </template>
 

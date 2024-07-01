@@ -15,8 +15,15 @@ defineProps<{
 
 <template>
   <view class="carousel">
-    <swiper @change="onChange" circular="true" :autoplay="false" :interval="3000">
-      <swiper-item v-for="item in list" :key="item.id">
+    <swiper
+      v-for="item in list"
+      :key="item.id"
+      @change="onChange"
+      circular="true"
+      :autoplay="false"
+      :interval="3000"
+    >
+      <swiper-item>
         <navigator url="/pages/index/index" hover-class="none" class="navigator">
           <image mode="aspectFill" class="image" :src="item.imgUrl"></image>
         </navigator>
@@ -25,8 +32,8 @@ defineProps<{
     <!-- 指示点 -->
     <view class="indicator">
       <text
-        v-for="(item, index) in list"
-        :key="item.id"
+        v-for="(item, index) in 3"
+        :key="item"
         class="dot"
         :class="{ active: index === activeIndex }"
       ></text>
