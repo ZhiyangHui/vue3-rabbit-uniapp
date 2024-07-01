@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import XtxSwiper from '@/components/XtxSwiper.vue'
-import { getHomeBannerAPI, getHomeCategoryAPI } from '@/apis/home'
+import { getHomeBannerAPI,getHomeCategoryAPI } from '@/apis/home'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 import type { BannerItem } from '@/types/home'
@@ -15,13 +15,12 @@ const getHomeBannerData = async () => {
 }
 
 //获取前台分类数据
-const getHomeCategoryData = async () => {
-  const res = await getHomeCategoryAPI()
-  console.log(res)
+contst getHomeCategoryData=async ()=>{
+  const res=await getHomeCategroyAPI
 }
 
 onLoad(() => {
-  getHomeBannerData(), getHomeCategoryData()
+  getHomeBannerData()
 })
 </script>
 

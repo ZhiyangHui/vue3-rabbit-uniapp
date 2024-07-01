@@ -17,7 +17,6 @@ const getHomeBannerData = async () => {
 //获取前台分类数据
 const getHomeCategoryData = async () => {
   const res = await getHomeCategoryAPI()
-  console.log(res)
 }
 
 onLoad(() => {
