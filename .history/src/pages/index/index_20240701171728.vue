@@ -53,8 +53,4 @@ page {
   display: flex;
   flex-direction: column;
 }
-
-.scroll-view {
-  flex: 1;
-}
 </style>

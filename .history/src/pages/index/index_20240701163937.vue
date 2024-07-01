@@ -7,7 +7,6 @@ import { ref } from 'vue'
 import type { BannerItem, CategoryItem, HotItem } from '@/types/home'
 import CategoryPanel from './components/CategoryPanel.vue'
 import HotPanel from './components/HotPanel.vue'
-import CustomNavbar from './components/CustomNavbar.vue'
 
 const bannerList = ref<BannerItem[]>([])
 const categoryList = ref<CategoryItem[]>([])
@@ -37,24 +36,13 @@ onLoad(() => {
 </script>
 
 <template>
-  <CustomNavbar></CustomNavbar>
-  <scroll-view class="scroll-view" scroll-y>
-    <XtxSwiper :list="bannerList"></XtxSwiper>
-    <CategoryPanel :list="categoryList"></CategoryPanel>
-    <HotPanel :list="hotList"></HotPanel>
-    <XtxGuess></XtxGuess>
-  </scroll-view>
+  <XtxSwiper :list="bannerList"></XtxSwiper>
+  <CategoryPanel :list="categoryList"></CategoryPanel>
+  <HotPanel :list="hotList"></HotPanel>
 </template>
 
 <style lang="scss">
 page {
   background-color: #f7f7f7;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.scroll-view {
-  flex: 1;
 }
 </style>
