@@ -28,10 +28,10 @@ onMounted(() => {
       :url="`/pages/goods/goods?id=4007498`"
     >
       <image class="image" mode="aspectFill" :src="item.picture"></image>
-      <view class="name">{{ item.name }} </view>
+      <view class="name"> 德国THORE男表 超薄手表男士休闲简约夜光石英防水直径40毫米 </view>
       <view class="price">
         <text class="small">¥</text>
-        <text>{{ item.price }}</text>
+        <text>899.00</text>
       </view>
     </navigator>
   </view>

@@ -7,7 +7,6 @@ const guessList = ref<GuessItem[]>([])
 //获取猜你喜欢数据
 const getHomeGoodsGuessLikeData = async () => {
   const res = await getHomeGoodsGuessLikeAPI()
-  guessList.value = res.result.items
 }
 
 onMounted(() => {
@@ -23,15 +22,19 @@ onMounted(() => {
   <view class="guess">
     <navigator
       class="guess-item"
-      v-for="item in guessList"
-      :key="item.id"
+      v-for="item in 10"
+      :key="item"
       :url="`/pages/goods/goods?id=4007498`"
     >
-      <image class="image" mode="aspectFill" :src="item.picture"></image>
-      <view class="name">{{ item.name }} </view>
+      <image
+        class="image"
+        mode="aspectFill"
+        src="https://pcapi-xiaotuxian-front-devtest.itheima.net/miniapp/uploads/goods_big_1.jpg"
+      ></image>
+      <view class="name"> 德国THORE男表 超薄手表男士休闲简约夜光石英防水直径40毫米 </view>
       <view class="price">
         <text class="small">¥</text>
-        <text>{{ item.price }}</text>
+        <text>899.00</text>
       </view>
     </navigator>
   </view>
