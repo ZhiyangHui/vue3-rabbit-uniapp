@@ -3,13 +3,12 @@ import XtxSwiper from '@/components/XtxSwiper.vue'
 import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from '@/apis/home'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import type { BannerItem, CategoryItem, HotItem } from '@/types/home'
+import type { BannerItem, CategoryItem } from '@/types/home'
 import CategoryPanel from './components/CategoryPanel.vue'
 import HotPanel from './components/HotPanel.vue'
 
 const bannerList = ref<BannerItem[]>([])
 const categoryList = ref<CategoryItem[]>([])
-const hotList = ref<HotItem[]>([])
 
 //获取轮播图数据
 const getHomeBannerData = async () => {
@@ -26,18 +25,18 @@ const getHomeCategoryData = async () => {
 //获取热门推荐数据
 const getHomeHotData = async () => {
   const res = await getHomeHotAPI()
-  hotList.value = res.result
+  console.log(res)
 }
 
 onLoad(() => {
-  getHomeBannerData(), getHomeCategoryData(), getHomeHotData()
+  getHomeBannerData(), getHomeCategoryData(),getHomeHotData（
 })
 </script>
 
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
   <CategoryPanel :list="categoryList"></CategoryPanel>
-  <HotPanel :list="hotList"></HotPanel>
+  <HotPanel></HotPanel>
 </template>
 
 <style lang="scss">

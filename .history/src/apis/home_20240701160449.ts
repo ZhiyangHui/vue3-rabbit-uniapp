@@ -21,7 +21,7 @@ export const getHomeCategoryAPI = () => {
 
 //热门
 export const getHomeHotAPI = () => {
-  return http<HotItem[]>({
+  return http<HotItem>({
     method: 'GET',
     url: '/home/hot/mutli',
   })

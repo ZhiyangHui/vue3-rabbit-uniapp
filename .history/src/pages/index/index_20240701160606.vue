@@ -37,7 +37,7 @@ onLoad(() => {
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
   <CategoryPanel :list="categoryList"></CategoryPanel>
-  <HotPanel :list="hotList"></HotPanel>
+  <HotPanel></HotPanel>
 </template>
 
 <style lang="scss">

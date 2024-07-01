@@ -26,7 +26,7 @@ const getHomeCategoryData = async () => {
 //获取热门推荐数据
 const getHomeHotData = async () => {
   const res = await getHomeHotAPI()
-  hotList.value = res.result
+  console.log(res)
 }
 
 onLoad(() => {
@@ -37,7 +37,7 @@ onLoad(() => {
 <template>
   <XtxSwiper :list="bannerList"></XtxSwiper>
   <CategoryPanel :list="categoryList"></CategoryPanel>
-  <HotPanel :list="hotList"></HotPanel>
+  <HotPanel></HotPanel>
 </template>
 
 <style lang="scss">
