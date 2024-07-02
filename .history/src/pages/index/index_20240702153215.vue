@@ -36,7 +36,7 @@ const getHomeHotData = async () => {
 const guessRef = ref<XtxGuessInstance>()
 //滚动触底
 const onScrollTolower = () => {
-  guessRef.value?.getMore()
+  guessRef.value?.getMore
 }
 
 onLoad(() => {
