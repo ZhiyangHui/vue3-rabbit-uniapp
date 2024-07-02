@@ -52,10 +52,10 @@ const onRefresherrefresh = async () => {
 
 const isLoading = ref(false)
 
-onLoad(async () => {
+onLoad(() => {
   isLoading.value = true
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
-  isLoading.value = false
+  getHomeBannerData(), getHomeCategoryData(), getHomeHotData()
+  isLoading.value = falase
 })
 </script>
 

@@ -50,12 +50,8 @@ const onRefresherrefresh = async () => {
   guessRef.value?.getMore()
 }
 
-const isLoading = ref(false)
-
-onLoad(async () => {
-  isLoading.value = true
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
-  isLoading.value = false
+onLoad(() => {
+  getHomeBannerData(), getHomeCategoryData(), getHomeHotData()
 })
 </script>
 
@@ -69,7 +65,7 @@ onLoad(async () => {
     class="scroll-view"
     scroll-y
   >
-    <PageSkeleton v-if="isLoading"></PageSkeleton>
+    <PageSkeleton v-if="true"></PageSkeleton>
     <template v-else>
       <XtxSwiper :list="bannerList"></XtxSwiper>
       <CategoryPanel :list="categoryList"></CategoryPanel>
