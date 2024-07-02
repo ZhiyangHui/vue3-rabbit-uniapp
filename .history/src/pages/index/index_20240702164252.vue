@@ -41,10 +41,10 @@ const onScrollTolower = () => {
 
 const isTriggered = ref(false)
 //自定义下拉刷新触发
-const onRefresherrefresh = async () => {
-  isTriggered.value = true
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
-  isTriggered.value = false
+const onRefresherrefresh = () => {
+  getHomeBannerData()
+  getHomeCategoryData()
+  getHomeHotData()
 }
 
 onLoad(() => {

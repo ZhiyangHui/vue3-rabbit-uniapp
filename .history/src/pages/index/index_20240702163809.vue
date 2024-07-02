@@ -39,14 +39,6 @@ const onScrollTolower = () => {
   guessRef.value?.getMore()
 }
 
-const isTriggered = ref(false)
-//自定义下拉刷新触发
-const onRefresherrefresh = async () => {
-  isTriggered.value = true
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
-  isTriggered.value = false
-}
-
 onLoad(() => {
   getHomeBannerData(), getHomeCategoryData(), getHomeHotData()
 })
@@ -55,9 +47,7 @@ onLoad(() => {
 <template>
   <CustomNavbar></CustomNavbar>
   <scroll-view
-    refresher-enabled="true"
-    @refresherrefresh="onRefresherrefresh"
-    :refresher-triggered="isTriggered"
+    refresher-enabled="false"
     @scrolltolower="onScrollTolower"
     class="scroll-view"
     scroll-y
