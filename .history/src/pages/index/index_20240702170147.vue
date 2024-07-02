@@ -9,6 +9,7 @@ import type { XtxGuessInstance } from '@/types/component'
 import CategoryPanel from './components/CategoryPanel.vue'
 import HotPanel from './components/HotPanel.vue'
 import CustomNavbar from './components/CustomNavbar.vue'
+import { gunzipSync } from 'zlib'
 
 const bannerList = ref<BannerItem[]>([])
 const categoryList = ref<CategoryItem[]>([])

@@ -29,19 +29,11 @@ const getHomeGoodsGuessLikeData = async () => {
   }
 }
 
-//重置页面方法
-const resetData = () => {
-  pageParams.page = 1
-  guessList.value = []
-  finish.value = false
-}
-
 onMounted(() => {
   getHomeGoodsGuessLikeData()
 })
 
 defineExpose({
-  resetData,
   getMore: getHomeGoodsGuessLikeData,
 })
 </script>
