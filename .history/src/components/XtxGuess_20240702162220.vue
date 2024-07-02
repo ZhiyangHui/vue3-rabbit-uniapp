@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue'
 
 //分页参数
 const pageParams: Required<PageParams> = {
-  page: 30,
+  page: 1,
   pageSize: 10,
 }
 
@@ -15,10 +15,7 @@ const finish = ref(false)
 //获取猜你喜欢数据
 const getHomeGoodsGuessLikeData = async () => {
   //退出判断
-  if (finish.value === true) {
-    return uni.showToast({ icon: 'none', title: '没有更多数据' })
-  }
-  const res = await getHomeGoodsGuessLikeAPI(pageParams)
+  if (finish.value === true) const res = await getHomeGoodsGuessLikeAPI(pageParams)
   //guessList.value = res.result.items
   guessList.value.push(...res.result.items)
   if (pageParams.page < res.result.pages) {
@@ -58,7 +55,7 @@ defineExpose({
       </view>
     </navigator>
   </view>
-  <view class="loading-text"> {{ finish ? '没有数据了' : '正在加载...' }}</view>
+  <view class="loading-text"> 正在加载... </view>
 </template>
 
 <style lang="scss">

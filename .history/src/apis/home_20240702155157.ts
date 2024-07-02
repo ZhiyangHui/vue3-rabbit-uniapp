@@ -29,10 +29,10 @@ export const getHomeHotAPI = () => {
 }
 
 //猜你喜欢
-export const getHomeGoodsGuessLikeAPI = (data?: PageParams) => {
+export const getHomeGoodsGuessLikeAPI = (date: PageParams) => {
   return http<PageResult<GuessItem>>({
     method: 'GET',
     url: '/home/goods/guessLike',
-    data,
+    data: {},
   })
 }

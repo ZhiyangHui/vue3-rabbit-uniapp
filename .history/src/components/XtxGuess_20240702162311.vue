@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue'
 
 //分页参数
 const pageParams: Required<PageParams> = {
-  page: 30,
+  page: 1,
   pageSize: 10,
 }
 
@@ -58,7 +58,7 @@ defineExpose({
       </view>
     </navigator>
   </view>
-  <view class="loading-text"> {{ finish ? '没有数据了' : '正在加载...' }}</view>
+  <view class="loading-text"> 正在加载... </view>
 </template>
 
 <style lang="scss">
