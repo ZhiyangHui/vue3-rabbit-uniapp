@@ -6,7 +6,6 @@ import { onLoad } from '@dcloudio/uni-app'
 import type { BannerItem } from '@/types/home'
 import type { CategoryTopItem } from '@/types/category'
 import XtxSwiper from '@/components/XtxSwiper.vue'
-import PageSkeleton from './components/PageSkeleton.vue'
 
 //获取轮播图数据
 const bannerList = ref<BannerItem[]>([])
@@ -89,7 +88,6 @@ onLoad(async () => {
       </scroll-view>
     </view>
   </view>
-  <PageSkeleton v-else></PageSkeleton>
 </template>
 
 <style lang="scss">

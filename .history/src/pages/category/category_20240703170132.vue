@@ -6,7 +6,6 @@ import { onLoad } from '@dcloudio/uni-app'
 import type { BannerItem } from '@/types/home'
 import type { CategoryTopItem } from '@/types/category'
 import XtxSwiper from '@/components/XtxSwiper.vue'
-import PageSkeleton from './components/PageSkeleton.vue'
 
 //获取轮播图数据
 const bannerList = ref<BannerItem[]>([])
@@ -31,14 +30,13 @@ const subCategoryList = computed(() => {
 //是否数据加载完毕
 const isFinish = ref(false)
 
-onLoad(async () => {
-  await Promise.all([getBannerData(), getCategoryTopData()])
-  isFinish.value = true
+onLoad(() => {
+  getBannerData(), getCategoryTopData()
 })
 </script>
 
 <template>
-  <view class="viewport" v-if="isFinish">
+  <view class="viewport">
     <!-- 搜索框 -->
     <view class="search">
       <view class="input">
@@ -89,7 +87,6 @@ onLoad(async () => {
       </scroll-view>
     </view>
   </view>
-  <PageSkeleton v-else></PageSkeleton>
 </template>
 
 <style lang="scss">
