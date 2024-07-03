@@ -56,13 +56,7 @@ onLoad(() => {
       >
     </view>
     <!-- 推荐列表 -->
-    <scroll-view
-      v-for="(item, index) in subTypes"
-      :key="item.id"
-      v-show="activeIndex === index"
-      scroll-y
-      class="scroll-view"
-    >
+    <scroll-view v-for="item in subTypes" :key="item.id" scroll-y class="scroll-view">
       <view class="goods">
         <navigator
           hover-class="none"
@@ -75,7 +69,7 @@ onLoad(() => {
           <view class="name ellipsis">{{ goods.name }}</view>
           <view class="price">
             <text class="symbol">¥</text>
-            <text class="number">{{ goods.price }}</text>
+            <text class="number">29.90</text>
           </view>
         </navigator>
       </view>

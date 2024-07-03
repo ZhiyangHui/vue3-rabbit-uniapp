@@ -50,32 +50,28 @@ onLoad(() => {
         v-for="(item, index) in subTypes"
         :key="item.id"
         class="text"
-        :class="{ active: index === activeIndex }"
-        @tap="activeIndex = index"
+        :class="{ active: index ===  }"
         >{{ item.title }}</text
       >
     </view>
     <!-- 推荐列表 -->
-    <scroll-view
-      v-for="(item, index) in subTypes"
-      :key="item.id"
-      v-show="activeIndex === index"
-      scroll-y
-      class="scroll-view"
-    >
+    <scroll-view scroll-y class="scroll-view">
       <view class="goods">
         <navigator
           hover-class="none"
           class="navigator"
-          v-for="goods in item.goodsItems.items"
-          :key="goods.id"
-          :url="`/pages/goods/goods?id=${goods.id}`"
+          v-for="goods in 10"
+          :key="goods"
+          :url="`/pages/goods/goods?id=`"
         >
-          <image class="thumb" :src="goods.picture"></image>
-          <view class="name ellipsis">{{ goods.name }}</view>
+          <image
+            class="thumb"
+            src="https://yanxuan-item.nosdn.127.net/5e7864647286c7447eeee7f0025f8c11.png"
+          ></image>
+          <view class="name ellipsis">不含酒精，使用安心爽肤清洁湿巾</view>
           <view class="price">
             <text class="symbol">¥</text>
-            <text class="number">{{ goods.price }}</text>
+            <text class="number">29.90</text>
           </view>
         </navigator>
       </view>
