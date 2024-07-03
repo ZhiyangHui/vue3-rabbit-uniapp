@@ -4,7 +4,6 @@ import { getCategoryTopAPI } from '@/apis/category'
 import { ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import type { BannerItem } from '@/types/home'
-import type { CategoryTopItem } from '@/types/category'
 import XtxSwiper from '@/components/XtxSwiper.vue'
 
 //获取轮播图数据
@@ -15,11 +14,10 @@ const getBannerData = async () => {
 }
 
 //获取分类列表数据
-const categoryList = ref<CategoryTopItem[]>([])
-const activeIndex = ref(0)
+const categoryList = ref<CategoryTopItem>([])
 const getCategoryTopData = async () => {
   const res = await getCategoryTopAPI()
-  categoryList.value = res.result
+  console.log(res)
 }
 
 onLoad(() => {
@@ -39,14 +37,8 @@ onLoad(() => {
     <view class="categories">
       <!-- 左侧：一级分类 -->
       <scroll-view class="primary" scroll-y>
-        <view
-          v-for="(item, index) in categoryList"
-          :key="item.id"
-          class="item"
-          :class="{ active: index === activeIndex }"
-          @tap="activeIndex = index"
-        >
-          <text class="name"> {{ item.name }} </text>
+        <view v-for="(item, index) in 10" :key="item" class="item" :class="{ active: index === 0 }">
+          <text class="name"> 居家 </text>
         </view>
       </scroll-view>
       <!-- 右侧：二级分类 -->

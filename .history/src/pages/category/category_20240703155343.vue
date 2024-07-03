@@ -20,6 +20,7 @@ const activeIndex = ref(0)
 const getCategoryTopData = async () => {
   const res = await getCategoryTopAPI()
   categoryList.value = res.result
+  console.log(categoryList)
 }
 
 onLoad(() => {

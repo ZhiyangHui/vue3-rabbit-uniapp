@@ -16,10 +16,9 @@ const getBannerData = async () => {
 
 //获取分类列表数据
 const categoryList = ref<CategoryTopItem[]>([])
-const activeIndex = ref(0)
 const getCategoryTopData = async () => {
   const res = await getCategoryTopAPI()
-  categoryList.value = res.result
+  console.log(res)
 }
 
 onLoad(() => {
@@ -43,10 +42,9 @@ onLoad(() => {
           v-for="(item, index) in categoryList"
           :key="item.id"
           class="item"
-          :class="{ active: index === activeIndex }"
-          @tap="activeIndex = index"
+          :class="{ active: index === 0 }"
         >
-          <text class="name"> {{ item.name }} </text>
+          <text class="name"> 居家 </text>
         </view>
       </scroll-view>
       <!-- 右侧：二级分类 -->

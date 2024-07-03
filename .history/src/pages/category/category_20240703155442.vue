@@ -46,7 +46,7 @@ onLoad(() => {
           :class="{ active: index === activeIndex }"
           @tap="activeIndex = index"
         >
-          <text class="name"> {{ item.name }} </text>
+          <text class="name"> 居家</text>
         </view>
       </scroll-view>
       <!-- 右侧：二级分类 -->

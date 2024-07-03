@@ -43,8 +43,7 @@ onLoad(() => {
           v-for="(item, index) in categoryList"
           :key="item.id"
           class="item"
-          :class="{ active: index === activeIndex }"
-          @tap="activeIndex = index"
+          :class="{ active: index === 0 }"
         >
           <text class="name"> {{ item.name }} </text>
         </view>
