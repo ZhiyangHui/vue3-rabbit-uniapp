@@ -40,15 +40,7 @@ const onScrollTolower = async () => {
   //当前页码累加
   currSubTypes.goodsItems.page++
   //调用api传参
-  const res = await getHotRecommendAPI(currUrlMap!.url, {
-    subType: currSubTypes.id,
-    page: currSubTypes.goodsItems.page,
-    pageSize: currSubTypes.goodsItems.pageSize,
-  })
-  //新的列表选项
-  const newSubTypes = res.result.subTypes[activeIndex.value]
-  //数组追加
-  currSubTypes.goodsItems.items.push(...newSubTypes.goodsItems.items)
+  const res = await getHotRecommendAPI(currUrlMap!.url)
 }
 
 onLoad(() => {

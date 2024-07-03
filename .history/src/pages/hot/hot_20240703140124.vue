@@ -34,21 +34,9 @@ const getHotRecommendData = async () => {
 }
 
 //滚动触底
-const onScrollTolower = async () => {
+const onScrollTolower = () => {
   //获取当前选项
-  const currSubTypes = subTypes.value[activeIndex.value]
-  //当前页码累加
-  currSubTypes.goodsItems.page++
-  //调用api传参
-  const res = await getHotRecommendAPI(currUrlMap!.url, {
-    subType: currSubTypes.id,
-    page: currSubTypes.goodsItems.page,
-    pageSize: currSubTypes.goodsItems.pageSize,
-  })
-  //新的列表选项
-  const newSubTypes = res.result.subTypes[activeIndex.value]
-  //数组追加
-  currSubTypes.goodsItems.items.push(...newSubTypes.goodsItems.items)
+  subTypes.value[activeIndex.value]
 }
 
 onLoad(() => {

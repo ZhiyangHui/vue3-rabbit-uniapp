@@ -47,8 +47,6 @@ const onScrollTolower = async () => {
   })
   //新的列表选项
   const newSubTypes = res.result.subTypes[activeIndex.value]
-  //数组追加
-  currSubTypes.goodsItems.items.push(...newSubTypes.goodsItems.items)
 }
 
 onLoad(() => {
