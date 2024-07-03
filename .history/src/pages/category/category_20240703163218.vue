@@ -67,16 +67,19 @@ onLoad(() => {
           <view class="section">
             <navigator
               v-for="goods in item.goods"
-              :key="goods.id"
+              :key="goods"
               class="goods"
               hover-class="none"
-              :url="`/pages/goods/goods?id=${goods.id}`"
+              :url="`/pages/goods/goods?id=`"
             >
-              <image class="image" :src="goods.picture"></image>
-              <view class="name ellipsis">{{ goods.name }}</view>
+              <image
+                class="image"
+                src="https://yanxuan-item.nosdn.127.net/674ec7a88de58a026304983dd049ea69.jpg"
+              ></image>
+              <view class="name ellipsis">木天蓼逗猫棍</view>
               <view class="price">
                 <text class="symbol">¥</text>
-                <text class="number">{{ goods.price }}</text>
+                <text class="number">16.00</text>
               </view>
             </navigator>
           </view>

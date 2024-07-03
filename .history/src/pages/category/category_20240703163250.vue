@@ -73,10 +73,10 @@ onLoad(() => {
               :url="`/pages/goods/goods?id=${goods.id}`"
             >
               <image class="image" :src="goods.picture"></image>
-              <view class="name ellipsis">{{ goods.name }}</view>
+              <view class="name ellipsis">木天蓼逗猫棍</view>
               <view class="price">
                 <text class="symbol">¥</text>
-                <text class="number">{{ goods.price }}</text>
+                <text class="number">16.00</text>
               </view>
             </navigator>
           </view>
