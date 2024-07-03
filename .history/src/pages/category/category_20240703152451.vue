@@ -6,7 +6,7 @@ import type { BannerItem } from '@/types/home'
 import XtxSwiper from '@/components/XtxSwiper.vue'
 
 //获取轮播图数据
-const bannerList = ref<BannerItem[]>([])
+const bannerList = ref<BannerItem[]>()
 const getBannerData = async () => {
   const res = await getHomeBannerAPI(2)
   bannerList.value = res.result

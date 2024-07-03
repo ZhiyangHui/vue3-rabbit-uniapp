@@ -2,19 +2,15 @@
 import { getHomeBannerAPI } from '@/apis/home'
 import { ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
-import type { BannerItem } from '@/types/home'
-import XtxSwiper from '@/components/XtxSwiper.vue'
 
 //获取轮播图数据
-const bannerList = ref<BannerItem[]>([])
+const bannerList = ref()
 const getBannerData = async () => {
   const res = await getHomeBannerAPI(2)
   bannerList.value = res.result
 }
 
-onLoad(() => {
-  getBannerData()
-})
+onload
 </script>
 
 <template>
@@ -36,7 +32,7 @@ onLoad(() => {
       <!-- 右侧：二级分类 -->
       <scroll-view class="secondary" scroll-y>
         <!-- 焦点图 -->
-        <XtxSwiper class="banner" :list="bannerList" />
+        <XtxSwiper class="banner" :list="[]" />
         <!-- 内容区域 -->
         <view class="panel" v-for="item in 3" :key="item">
           <view class="title">
