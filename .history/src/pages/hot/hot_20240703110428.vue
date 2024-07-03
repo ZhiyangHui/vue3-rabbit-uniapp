@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getHotRecommendAPI } from '@/apis/hot'
-import { onLoad } from '@dcloudio/uni-app'
+import { onLoad } from '@dcloudio/uni-app';
 
 // 热门推荐页 标题和url
 const hotMap = [
@@ -24,9 +24,7 @@ const getHotRecommendData = async () => {
   console.log(res)
 }
 
-onLoad(() => {
-  getHotRecommendData()
-})
+onLoad(options) {}
 </script>
 
 <template>

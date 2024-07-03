@@ -19,14 +19,14 @@ const currUrlMap = hotMap.find((v) => v.type === query.type)
 uni.setNavigationBarTitle({ title: currUrlMap!.title })
 
 //获取热门推荐数据函数
-const getHotRecommendData = async () => {
-  const res = await getHotRecommendAPI(currUrlMap!.url)
-  console.log(res)
-}
+// const getHotRecommendData = async () => {
+//   const res = await getHotRecommendAPI(currUrlMap!.url)
+//   console.log(res)
+// }
 
-onLoad(() => {
-  getHotRecommendData()
-})
+// onLoad(() => {
+//   getHotRecommendData()
+// })
 </script>
 
 <template>

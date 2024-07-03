@@ -24,9 +24,7 @@ const getHotRecommendData = async () => {
   console.log(res)
 }
 
-onLoad(() => {
-  getHotRecommendData()
-})
+onLoad(() => {})
 </script>
 
 <template>
