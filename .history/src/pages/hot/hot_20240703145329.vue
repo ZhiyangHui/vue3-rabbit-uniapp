@@ -29,7 +29,7 @@ const activeIndex = ref(0)
 //获取热门推荐数据函数
 const getHotRecommendData = async () => {
   const res = await getHotRecommendAPI(currUrlMap!.url, {
-    page: 1,
+    page: 30,
     pageSize: 10,
   })
   bannerPicture.value = res.result.bannerPicture
