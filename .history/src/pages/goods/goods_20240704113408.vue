@@ -104,11 +104,15 @@ onLoad(() => {
           hover-class="none"
           :url="`/pages/goods/goods?id=${item.id}`"
         >
-          <image class="image" mode="aspectFill" :src="item.picture"></image>
-          <view class="name ellipsis">{{ item.name }}</view>
+          <image
+            class="image"
+            mode="aspectFill"
+            src="https://yanxuan-item.nosdn.127.net/e0cea368f41da1587b3b7fc523f169d7.png"
+          ></image>
+          <view class="name ellipsis">简约山形纹全棉提花毛巾</view>
           <view class="price">
             <text class="symbol">¥</text>
-            <text class="number">{{ item.price }}</text>
+            <text class="number">18.50</text>
           </view>
         </navigator>
       </view>

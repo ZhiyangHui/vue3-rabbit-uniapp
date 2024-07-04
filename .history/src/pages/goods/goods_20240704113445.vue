@@ -108,7 +108,7 @@ onLoad(() => {
           <view class="name ellipsis">{{ item.name }}</view>
           <view class="price">
             <text class="symbol">¥</text>
-            <text class="number">{{ item.price }}</text>
+            <text class="number">{{ item.pri }}</text>
           </view>
         </navigator>
       </view>
