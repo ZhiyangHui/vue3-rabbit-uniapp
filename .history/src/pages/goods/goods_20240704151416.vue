@@ -91,7 +91,7 @@ onLoad(() => {
           <text class="text ellipsis"> 请选择收获地址 </text>
         </view>
         <view class="item arrow">
-          <text @tap="openPopup('service')" class="label">服务</text>
+          <text @tap="popup?.open('bottom')" class="label">服务</text>
           <text class="text ellipsis"> 无忧退 快速退款 免费包邮 </text>
         </view>
       </view>
@@ -163,8 +163,8 @@ onLoad(() => {
 
   <!-- uni-ui弹出层 -->
   <uni-popup background-color="#fff" ref="popup" type="bottom">
-    <AddressPanel @close="popup?.close()" v-if="popupName === 'address'"></AddressPanel>
-    <ServicePanel @close="popup?.close()" v-if="popupName === 'service'"></ServicePanel>
+    <AddressPanel></AddressPanel>
+    <ServicePanel></ServicePanel>
   </uni-popup>
 </template>
 

@@ -164,7 +164,7 @@ onLoad(() => {
   <!-- uni-ui弹出层 -->
   <uni-popup background-color="#fff" ref="popup" type="bottom">
     <AddressPanel @close="popup?.close()" v-if="popupName === 'address'"></AddressPanel>
-    <ServicePanel @close="popup?.close()" v-if="popupName === 'service'"></ServicePanel>
+    <ServicePanel @close="popup?.close()"" v-if="popupName === 'service'"></ServicePanel>
   </uni-popup>
 </template>
 
