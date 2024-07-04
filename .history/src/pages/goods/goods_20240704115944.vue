@@ -24,15 +24,6 @@ const onChange: UniHelper.SwiperOnChange = (event) => {
   currentIndex.value = event.detail!.current
 }
 
-//点击图片时大图预览
-const onTapImage = (url: string) => {
-  //大图预览
-  uni.previewImage({
-    current: url,
-    urls: goods.value!.mainPictures,
-  })
-}
-
 onLoad(() => {
   getGoodsByIdData()
 })

@@ -29,7 +29,6 @@ const onTapImage = (url: string) => {
   //大图预览
   uni.previewImage({
     current: url,
-    urls: goods.value!.mainPictures,
   })
 }
 
