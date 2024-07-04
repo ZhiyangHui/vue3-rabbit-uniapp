@@ -36,7 +36,6 @@ const onTapImage = (url: string) => {
 //这里保存的是弹出层组件
 const popup = ref<{
   open: (type?: UniHelper.UniPopupType) => void
-  close: () => void
 }>()
 
 onLoad(() => {

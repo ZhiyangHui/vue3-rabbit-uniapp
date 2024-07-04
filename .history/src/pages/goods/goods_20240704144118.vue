@@ -36,7 +36,6 @@ const onTapImage = (url: string) => {
 //这里保存的是弹出层组件
 const popup = ref<{
   open: (type?: UniHelper.UniPopupType) => void
-  close: () => void
 }>()
 
 onLoad(() => {
@@ -157,7 +156,7 @@ onLoad(() => {
   <uni-popup background-color="#fff" ref="popup" type="bottom">
     <view>内容1</view>
     <view>内容2</view>
-    <button @tap="popup?.close()">关闭弹出层</button>
+    <button @tap="popup">关闭弹出层</button>
   </uni-popup>
 </template>
 
