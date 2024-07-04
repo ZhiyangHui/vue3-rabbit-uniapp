@@ -25,7 +25,6 @@ const onGetPhoneNumber: UniHelper.ButtonOnGetphonenumber = async (event) => {
 const onGetPhoneNumberSimple = async () => {
   const res = await postLoginWxMiniSimpleAPI('13031185559')
   console.log(res)
-  uni.showToast({ icon: 'none', title: '登录成功' })
 }
 </script>
 
