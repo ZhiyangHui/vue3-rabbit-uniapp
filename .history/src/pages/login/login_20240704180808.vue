@@ -26,13 +26,12 @@ const onGetPhoneNumber: UniHelper.ButtonOnGetphonenumber = async (event) => {
 //模拟手机号码快捷登录
 const onGetPhoneNumberSimple = async () => {
   const res = await postLoginWxMiniSimpleAPI('13031185559')
-  loginSuccess(res.result)
 }
 
-const loginSuccess = (profile: LoginResult) => {
+const loginSuccess = (res: LoginResult) => {
   //保存会员信息
   const memberStore = useMemberStore()
-  memberStore.setProfile(profile)
+  memberStore.setProfile(res?.result)
   uni.showToast({ icon: 'success', title: '登录成功' })
   setTimeout(() => {
     //页面跳转

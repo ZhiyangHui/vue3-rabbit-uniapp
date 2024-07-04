@@ -32,7 +32,7 @@ const onGetPhoneNumberSimple = async () => {
 const loginSuccess = (profile: LoginResult) => {
   //保存会员信息
   const memberStore = useMemberStore()
-  memberStore.setProfile(profile)
+  memberStore.setProfile(profile.result)
   uni.showToast({ icon: 'success', title: '登录成功' })
   setTimeout(() => {
     //页面跳转
