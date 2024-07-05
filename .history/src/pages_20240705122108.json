@@ -112,9 +112,9 @@
     }
   ],
   "preloadRule": {
-    "pages/my/my": {
+    "pages/my/my":{
       "network": "all",
-      "packages": ["pagesMember"]
+      "packages": [pagesMember]
     }
   }
 }

@@ -97,7 +97,6 @@
       }
     ]
   },
-  //分包的加载规则
   "subPackages": [
     {
       "root": "pagesMember",
@@ -110,11 +109,5 @@
         }
       ]
     }
-  ],
-  "preloadRule": {
-    "pages/my/my": {
-      "network": "all",
-      "packages": ["pagesMember"]
-    }
-  }
+  ]
 }
