@@ -47,10 +47,7 @@ const onSubmit = async () => {
   const res = await putMemberProfileAPI({
     nickname: profile.value?.nickname,
   })
-  uni.showToast({
-    title: '保存成功',
-    icon: 'success',
-  })
+  console.log(res)
 }
 
 onLoad(() => {

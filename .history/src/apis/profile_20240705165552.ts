@@ -1,4 +1,4 @@
-import type { ProfileDetail, ProfileParams } from '@/types/member'
+import type { ProfileParams } from '@/types/member'
 import { http } from '@/utils/http'
 
 //已经在拦截器里自动添加token了

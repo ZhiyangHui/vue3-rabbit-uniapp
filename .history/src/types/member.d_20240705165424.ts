@@ -34,8 +34,4 @@ export type Gender = '女' | '男'
 export type ProfileParams = Pick<
   ProfileDetail,
   'nickname' | 'gender' | 'birthday' | 'profession'
-> & {
-  provinceCode?: string
-  citeCode?: string
-  countyCode?: string
-}
+> & {}

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getMemberProfileAPI, putMemberProfileAPI } from '@/apis/profile'
+import { getMemberProfileAPI } from '@/apis/profile'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 import type { ProfileDetail } from '@/types/member'
@@ -8,7 +8,7 @@ import type { ProfileDetail } from '@/types/member'
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 //获取个人信息
-const profile = ref<ProfileDetail>({} as ProfileDetail)
+const profile = ref<ProfileDetail>()
 const getMemberProfileData = async () => {
   const res = await getMemberProfileAPI()
   profile.value = res.result
@@ -42,17 +42,6 @@ const onAvaterChange = () => {
   })
 }
 
-//点击保存提交表单
-const onSubmit = async () => {
-  const res = await putMemberProfileAPI({
-    nickname: profile.value?.nickname,
-  })
-  uni.showToast({
-    title: '保存成功',
-    icon: 'success',
-  })
-}
-
 onLoad(() => {
   getMemberProfileData()
 })
@@ -82,7 +71,7 @@ onLoad(() => {
         </view>
         <view class="form-item">
           <text class="label">昵称</text>
-          <input class="input" type="text" placeholder="请填写昵称" v-model="profile!.nickname" />
+          <input class="input" type="text" placeholder="请填写昵称" :value="profile?.nickname" />
         </view>
         <view class="form-item">
           <text class="label">性别</text>

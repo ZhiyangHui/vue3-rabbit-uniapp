@@ -8,7 +8,7 @@ import type { ProfileDetail } from '@/types/member'
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 //获取个人信息
-const profile = ref<ProfileDetail>({} as ProfileDetail)
+const profile = ref<ProfileDetail>()
 const getMemberProfileData = async () => {
   const res = await getMemberProfileAPI()
   profile.value = res.result
@@ -47,10 +47,7 @@ const onSubmit = async () => {
   const res = await putMemberProfileAPI({
     nickname: profile.value?.nickname,
   })
-  uni.showToast({
-    title: '保存成功',
-    icon: 'success',
-  })
+  console.log(res)
 }
 
 onLoad(() => {
