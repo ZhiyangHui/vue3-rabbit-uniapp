@@ -10,7 +10,7 @@ type BaseProfile = {
   nickname?: string
 }
 
-export type LoginResult = BaseProfile & {
+export type LoginResult = {
   /** 手机号 */
   mobile: string
   /** 登录凭证 */

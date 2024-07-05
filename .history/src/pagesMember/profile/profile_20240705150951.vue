@@ -80,7 +80,7 @@ onLoad(() => {
         </view>
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
+          <input class="input" type="text" placeholder="请填写职业" value="" />
         </view>
       </view>
       <!-- 提交按钮 -->

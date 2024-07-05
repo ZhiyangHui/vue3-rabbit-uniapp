@@ -1,5 +1,4 @@
-//通用的用户信息
-type BaseProfile = {
+export type LoginResult = {
   /** 用户ID */
   id: number
   /** 头像  */
@@ -8,9 +7,6 @@ type BaseProfile = {
   account: string
   /** 昵称 */
   nickname?: string
-}
-
-export type LoginResult = BaseProfile & {
   /** 手机号 */
   mobile: string
   /** 登录凭证 */
@@ -18,7 +14,15 @@ export type LoginResult = BaseProfile & {
 }
 
 /** 个人信息 用户详情信息 */
-export type ProfileDetail = BaseProfile & {
+export type ProfileDetail = {
+  /** 用户ID */
+  id: number
+  /** 头像  */
+  avatar: string
+  /** 账户名  */
+  account: string
+  /** 昵称 */
+  nickname?: string
   /** 性别 */
   gender?: Gender
   /** 生日 */

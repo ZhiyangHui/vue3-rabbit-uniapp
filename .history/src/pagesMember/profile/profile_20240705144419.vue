@@ -1,22 +1,14 @@
 <script setup lang="ts">
 import { getMemberProfileAPI } from '@/apis/profile'
 import { onLoad } from '@dcloudio/uni-app'
-import { ref } from 'vue'
-import type { ProfileDetail } from '@/types/member'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
 //获取个人信息
-const profile = ref<ProfileDetail>()
 const getMemberProfileData = async () => {
   const res = await getMemberProfileAPI()
-  profile.value = res.result
 }
-
-onLoad(() => {
-  getMemberProfileData()
-})
 </script>
 
 <template>
@@ -29,7 +21,7 @@ onLoad(() => {
     <!-- 头像 -->
     <view class="avatar">
       <view class="avatar-content">
-        <image class="image" :src="profile?.avatar" mode="aspectFill" />
+        <image class="image" src=" " mode="aspectFill" />
         <text class="text">点击修改头像</text>
       </view>
     </view>
@@ -39,21 +31,21 @@ onLoad(() => {
       <view class="form-content">
         <view class="form-item">
           <text class="label">账号</text>
-          <text class="account">{{ profile?.account }}</text>
+          <text class="account">账号名</text>
         </view>
         <view class="form-item">
           <text class="label">昵称</text>
-          <input class="input" type="text" placeholder="请填写昵称" :value="profile?.nickname" />
+          <input class="input" type="text" placeholder="请填写昵称" value="" />
         </view>
         <view class="form-item">
           <text class="label">性别</text>
           <radio-group>
             <label class="radio">
-              <radio value="男" color="#27ba9b" :checked="profile?.gender === '男'" />
+              <radio value="男" color="#27ba9b" :checked="true" />
               男
             </label>
             <label class="radio">
-              <radio value="女" color="#27ba9b" :checked="profile?.gender === '女'" />
+              <radio value="女" color="#27ba9b" :checked="false" />
               女
             </label>
           </radio-group>
@@ -65,22 +57,22 @@ onLoad(() => {
             mode="date"
             start="1900-01-01"
             :end="new Date()"
-            :value="profile?.birthday"
+            value="2000-01-01"
           >
-            <view v-if="profile?.birthday">2000-01-01</view>
+            <view v-if="false">2000-01-01</view>
             <view class="placeholder" v-else>请选择日期</view>
           </picker>
         </view>
         <view class="form-item">
           <text class="label">城市</text>
-          <picker class="picker" mode="region" :value="profile?.fullLocation?.split(' ')">
-            <view v-if="profile?.fullLocation">广东省广州市天河区</view>
+          <picker class="picker" mode="region" :value="['广东省', '广州市', '天河区']">
+            <view v-if="false">广东省广州市天河区</view>
             <view class="placeholder" v-else>请选择城市</view>
           </picker>
         </view>
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
+          <input class="input" type="text" placeholder="请填写职业" value="" />
         </view>
       </view>
       <!-- 提交按钮 -->
