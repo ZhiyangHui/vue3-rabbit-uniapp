@@ -57,9 +57,7 @@ const onSubmit = async () => {
     title: '保存成功',
     icon: 'success',
   })
-  setTimeout(() => {
-    uni.navigateBack()
-  }, 500)
+  uni.navigateBack()
 }
 
 const memberStore = useMemberStore()

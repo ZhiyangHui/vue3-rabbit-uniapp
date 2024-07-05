@@ -52,14 +52,11 @@ const onSubmit = async () => {
     nickname: profile.value?.nickname,
   })
   //更新store里的名称
-  memberStore.profile!.nickname = res.result.nickname
+  memberStore.profile?.nickname = res.result.nickname
   uni.showToast({
     title: '保存成功',
     icon: 'success',
   })
-  setTimeout(() => {
-    uni.navigateBack()
-  }, 500)
 }
 
 const memberStore = useMemberStore()

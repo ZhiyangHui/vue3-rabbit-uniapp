@@ -35,7 +35,7 @@ const onAvaterChange = () => {
             //个人信息页数据更新
             profile.value!.avatar = avatar
             //store头像更新
-            memberStore.profile!.avatar = avatar
+            memberStore.profile?.avatar = avatar
             uni.showToast({ icon: 'success', title: '更新成功' })
           } else {
             uni.showToast({ icon: 'error', title: '接口崩了' })
@@ -51,15 +51,10 @@ const onSubmit = async () => {
   const res = await putMemberProfileAPI({
     nickname: profile.value?.nickname,
   })
-  //更新store里的名称
-  memberStore.profile!.nickname = res.result.nickname
   uni.showToast({
     title: '保存成功',
     icon: 'success',
   })
-  setTimeout(() => {
-    uni.navigateBack()
-  }, 500)
 }
 
 const memberStore = useMemberStore()
