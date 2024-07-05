@@ -3,7 +3,6 @@ import { useMemberStore } from '@/stores'
 import XtxGuess from '@/components/XtxGuess.vue'
 import { ref } from 'vue'
 import type { XtxGuessInstance } from '@/types/component'
-import { useGuessList } from '../../composables/index.js'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -17,7 +16,8 @@ const orderTypes = [
 
 const memberStore = useMemberStore()
 
-const { guessRef, onScrollTolower } = useGuessList()
+//获取猜你喜欢组件实例
+const guessRef = ref<XtxGuessInstance>()
 </script>
 
 <template>
