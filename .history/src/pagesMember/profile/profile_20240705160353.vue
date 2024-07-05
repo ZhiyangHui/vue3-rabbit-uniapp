@@ -28,15 +28,7 @@ const onAvaterChange = () => {
         fileType: 'image',
         filePath: tempFilePath,
         name: 'file',
-        success: (res) => {
-          if (res.statusCode === 200) {
-            const avatar = JSON.parse(res.data).result.avatar
-            profile.value!.avatar = avatar
-            uni.showToast({ icon: 'success', title: '更新成功' })
-          } else {
-            uni.showToast({ icon: 'error', title: '接口崩了' })
-          }
-        },
+        success: (res) => {},
       })
     },
   })
