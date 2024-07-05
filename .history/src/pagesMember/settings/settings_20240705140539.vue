@@ -21,7 +21,7 @@ const onLogout = () => {
 <template>
   <view class="viewport">
     <!-- 列表1 -->
-    <view class="list" v-if="memberStore.profile">
+    <view class="list" v-if="true">
       <navigator url="/pagesMember/address/address" hover-class="none" class="item arrow">
         我的收货地址
       </navigator>
@@ -37,7 +37,7 @@ const onLogout = () => {
       <navigator hover-class="none" class="item arrow" url=" ">关于小兔鲜儿</navigator>
     </view>
     <!-- 操作按钮 -->
-    <view class="action" v-if="memberStore.profile">
+    <view class="action">
       <view @tap="onLogout" class="button">退出登录</view>
     </view>
   </view>
