@@ -108,7 +108,7 @@ onLoad(() => {
         <text class="label">手机号码</text>
         <input class="input" placeholder="请填写收货人手机号码" v-model="form.contact" />
       </uni-forms-item>
-      <uni-forms-item name="fullLocation" class="form-item">
+      <uni-forms name="fullLocation" class="form-item">
         <text class="label">所在地区</text>
         <picker
           @change="onRegionChange"
@@ -119,7 +119,7 @@ onLoad(() => {
           <view v-if="form.fullLocation">{{ form.fullLocation }}</view>
           <view v-else class="placeholder">请选择省/市/区(县)</view>
         </picker>
-      </uni-forms-item>
+      </uni-forms>
       <uni-forms-item name="address" class="form-item">
         <text class="label">详细地址</text>
         <input class="input" placeholder="街道、楼牌号等信息" v-model="form.address" />
