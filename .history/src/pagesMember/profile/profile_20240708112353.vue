@@ -2,7 +2,7 @@
 import { getMemberProfileAPI, putMemberProfileAPI } from '@/apis/profile'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import type { Gender, ProfileDetail } from '@/types/member'
+import type { ProfileDetail } from '@/types/member'
 import { useMemberStore } from '@/stores'
 
 // 获取屏幕边界到安全区域距离
@@ -50,7 +50,6 @@ const onAvaterChange = () => {
 const onSubmit = async () => {
   const res = await putMemberProfileAPI({
     nickname: profile.value?.nickname,
-    gender: profile.value.gender,
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
@@ -66,9 +65,7 @@ const onSubmit = async () => {
 const memberStore = useMemberStore()
 
 //修改性别
-const onGenderChange: UniHelper.RadioGroupOnChange = (event) => {
-  profile.value.gender = event.detail.value as Gender
-}
+const onGenderChange: UniHelper.RadioGroupOnChange = (event) => {}
 onLoad(() => {
   getMemberProfileData()
 })

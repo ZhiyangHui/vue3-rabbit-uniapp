@@ -50,7 +50,6 @@ const onAvaterChange = () => {
 const onSubmit = async () => {
   const res = await putMemberProfileAPI({
     nickname: profile.value?.nickname,
-    gender: profile.value.gender,
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
