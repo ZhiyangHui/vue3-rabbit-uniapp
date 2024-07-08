@@ -55,7 +55,7 @@ const onSubmit = async () => {
     await postMemberAddressAPI(form.value)
   }
 
-  uni.showToast({ icon: 'success', title: query.id ? '修改成功' : '添加成功' })
+  uni.showToast({ icon: 'success', title: query.id ? '添加成功' : '修改成功' })
   setTimeout(() => {
     uni.navigateBack()
   }, 500)

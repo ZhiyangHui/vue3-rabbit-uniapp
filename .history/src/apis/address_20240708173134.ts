@@ -23,7 +23,7 @@ export const getMemberAddressByIdAPI = (id: string) => {
   })
 }
 
-export const putMemberAddressByIdAPI = (id: string, data: AddressParams) => {
+export const putMemberAddressByIdAPI = (id: string, data: AddressItem) => {
   return http({
     method: 'PUT',
     url: `/member/address/${id}`,
