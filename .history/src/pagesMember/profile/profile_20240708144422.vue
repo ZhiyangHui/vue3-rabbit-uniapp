@@ -73,7 +73,7 @@ const onSubmit = async () => {
     provinceCode: fullLocationCode[0] || undefined,
     citeCode: fullLocationCode[1] || undefined,
     countyCode: fullLocationCode[2] || undefined,
-    profession: profile.value.profession,
+    profession: getJob.value,
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
@@ -160,7 +160,7 @@ onLoad(() => {
         </view>
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
+          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
         </view>
       </view>
       <!-- 提交按钮 -->

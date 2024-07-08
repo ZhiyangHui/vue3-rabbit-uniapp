@@ -16,7 +16,7 @@ const getMemberProfileData = async () => {
 }
 
 //修改头像
-const onAvatarChange = () => {
+const onAvaterChange = () => {
   //调用拍照
   uni.chooseMedia({
     count: 1,
@@ -71,9 +71,8 @@ const onSubmit = async () => {
     gender,
     birthday,
     provinceCode: fullLocationCode[0] || undefined,
-    citeCode: fullLocationCode[1] || undefined,
-    countyCode: fullLocationCode[2] || undefined,
-    profession: profile.value.profession,
+    citeCode: fullLocationCode[1],
+    countyCode: fullLocationCode[2],
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
@@ -102,7 +101,7 @@ onLoad(() => {
     </view>
     <!-- 头像 -->
     <view class="avatar">
-      <view @tap="onAvatarChange" class="avatar-content">
+      <view @tap="onAvaterChange" class="avatar-content">
         <image class="image" :src="profile?.avatar" mode="aspectFill" />
         <text class="text">点击修改头像</text>
       </view>
@@ -160,7 +159,7 @@ onLoad(() => {
         </view>
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
+          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
         </view>
       </view>
       <!-- 提交按钮 -->

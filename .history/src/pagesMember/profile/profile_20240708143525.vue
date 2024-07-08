@@ -63,9 +63,14 @@ const onFullLocationChange: UniHelper.RegionPickerOnChange = (event) => {
   fullLocationCode = event.detail.code!
 }
 
+//修改职业
+const getJob = ref<string>('')
+
 //点击保存提交表单
 const onSubmit = async () => {
   const { nickname, gender, birthday } = profile.value
+  console.log(getJob)
+
   const res = await putMemberProfileAPI({
     nickname,
     gender,
@@ -73,7 +78,7 @@ const onSubmit = async () => {
     provinceCode: fullLocationCode[0] || undefined,
     citeCode: fullLocationCode[1] || undefined,
     countyCode: fullLocationCode[2] || undefined,
-    profession: profile.value.profession,
+    profession: getJob.value || undefined,
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
@@ -160,7 +165,13 @@ onLoad(() => {
         </view>
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
+          <input
+            class="input"
+            type="text"
+            placeholder="请填写职业"
+            :value="profile?.profession"
+            ref="getJob"
+          />
         </view>
       </view>
       <!-- 提交按钮 -->

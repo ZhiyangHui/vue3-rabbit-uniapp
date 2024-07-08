@@ -158,10 +158,10 @@ onLoad(() => {
             <view class="placeholder" v-else>请选择城市</view>
           </picker>
         </view>
-        <view class="form-item">
+        <!-- <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
-        </view>
+          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
+        </view> -->
       </view>
       <!-- 提交按钮 -->
       <button @tap="onSubmit" class="form-button">保 存</button>
