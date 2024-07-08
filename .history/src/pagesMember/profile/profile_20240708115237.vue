@@ -132,7 +132,7 @@ onLoad(() => {
             :end="new Date()"
             :value="profile?.birthday"
           >
-            <view v-if="profile?.birthday">{{ profile?.birthday }}</view>
+            <view v-if="profile?.birthday">2000-01-01</view>
             <view class="placeholder" v-else>请选择日期</view>
           </picker>
         </view>
