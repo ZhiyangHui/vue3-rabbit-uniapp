@@ -24,7 +24,6 @@ const query = defineProps<{
 const getMemberAddressByIdData = async () => {
   if (query.id) {
     const res = await getMemberAddressByIdAPI(query.id)
-    Object.assign(form.value, res.result)
   }
 }
 
