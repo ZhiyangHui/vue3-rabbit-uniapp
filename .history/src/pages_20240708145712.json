@@ -125,7 +125,7 @@
         {
           "path": "address-form/address-form",
           "style": {
-            "navigationBarTitleText": ""
+            "navigationBarTitleText": "address-form"
           }
         }
       ]
