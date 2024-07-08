@@ -54,13 +54,12 @@ const onGenderChange: UniHelper.RadioGroupOnChange = (event) => {
 //修改生日
 const onBirthdayChange: UniHelper.DatePickerOnChange = (event) => {
   profile.value.birthday = event.detail.value
+  console.log(event.detail.value)
 }
 
 //修改城市
-let fullLocationCode: [string, string, string] = ['', '', '']
 const onFullLocationChange: UniHelper.RegionPickerOnChange = (event) => {
-  profile.value.fullLocation = event.detail.value.join(' ')
-  fullLocationCode = event.detail.code!
+  console.log(event.detail)
 }
 
 //点击保存提交表单
@@ -70,9 +69,6 @@ const onSubmit = async () => {
     nickname,
     gender,
     birthday,
-    provinceCode: fullLocationCode[0],
-    citeCode: fullLocationCode[1],
-    countyCode: fullLocationCode[2],
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
@@ -153,7 +149,7 @@ onLoad(() => {
             mode="region"
             :value="profile?.fullLocation?.split(' ')"
           >
-            <view v-if="profile?.fullLocation">{{ profile.fullLocation }}</view>
+            <view v-if="profile?.fullLocation">广东省广州市天河区</view>
             <view class="placeholder" v-else>请选择城市</view>
           </picker>
         </view>

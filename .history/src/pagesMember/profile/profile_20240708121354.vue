@@ -70,9 +70,6 @@ const onSubmit = async () => {
     nickname,
     gender,
     birthday,
-    provinceCode: fullLocationCode[0],
-    citeCode: fullLocationCode[1],
-    countyCode: fullLocationCode[2],
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname

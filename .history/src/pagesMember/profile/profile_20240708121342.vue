@@ -60,7 +60,7 @@ const onBirthdayChange: UniHelper.DatePickerOnChange = (event) => {
 let fullLocationCode: [string, string, string] = ['', '', '']
 const onFullLocationChange: UniHelper.RegionPickerOnChange = (event) => {
   profile.value.fullLocation = event.detail.value.join(' ')
-  fullLocationCode = event.detail.code!
+  fullLocationCode = event.detail.code
 }
 
 //点击保存提交表单
@@ -70,9 +70,6 @@ const onSubmit = async () => {
     nickname,
     gender,
     birthday,
-    provinceCode: fullLocationCode[0],
-    citeCode: fullLocationCode[1],
-    countyCode: fullLocationCode[2],
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname

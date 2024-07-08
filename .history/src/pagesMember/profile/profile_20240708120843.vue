@@ -54,13 +54,12 @@ const onGenderChange: UniHelper.RadioGroupOnChange = (event) => {
 //修改生日
 const onBirthdayChange: UniHelper.DatePickerOnChange = (event) => {
   profile.value.birthday = event.detail.value
+  console.log(event.detail.value)
 }
 
 //修改城市
-let fullLocationCode: [string, string, string] = ['', '', '']
 const onFullLocationChange: UniHelper.RegionPickerOnChange = (event) => {
-  profile.value.fullLocation = event.detail.value.join(' ')
-  fullLocationCode = event.detail.code!
+  profile.value.fullLocation = event.detail.value
 }
 
 //点击保存提交表单
@@ -70,9 +69,6 @@ const onSubmit = async () => {
     nickname,
     gender,
     birthday,
-    provinceCode: fullLocationCode[0],
-    citeCode: fullLocationCode[1],
-    countyCode: fullLocationCode[2],
   })
   //更新store里的名称
   memberStore.profile!.nickname = res.result.nickname
