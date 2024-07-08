@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { postMemberAddressAPI } from '@/apis/address'
 
 // 表单数据
 const form = ref({
@@ -27,20 +26,6 @@ const onRegionChange: UniHelper.RegionPickerOnChange = (event) => {
   form.value.fullLocation = event.detail.value.join(' ')
   const [provinceCode, cityCode, countyCode] = event.detail.code!
   Object.assign(form.value, { provinceCode, cityCode, countyCode })
-}
-
-//收集是否默认地址
-const onSwitchChange: UniHelper.SwitchOnChange = (event) => {
-  form.value.isDefault = event.detail.value ? 1 : 0
-}
-
-//提交表单
-const onSubmit = async () => {
-  await postMemberAddressAPI(form.value)
-  uni.showToast({ icon: 'success', title: '添加成功' })
-  setTimeout(() => {
-    uni.navigateBack()
-  }, 500)
 }
 </script>
 
@@ -74,17 +59,12 @@ const onSubmit = async () => {
       </view>
       <view class="form-item">
         <label class="label">设为默认地址</label>
-        <switch
-          @change="onSwitchChange"
-          class="switch"
-          color="#27ba9b"
-          :checked="form.isDefault === 1"
-        />
+        <switch @change="onSwitchChange" class="switch" color="#27ba9b" :checked="true" />
       </view>
     </form>
   </view>
   <!-- 提交按钮 -->
-  <button @tap="onSubmit" class="button">保存并使用</button>
+  <button class="button">保存并使用</button>
   {{ form }}
 </template>
 

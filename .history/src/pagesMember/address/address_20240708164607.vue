@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getMemberAddressAPI } from '@/apis/address'
-import { onShow } from '@dcloudio/uni-app'
+import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 import type { AddressItem } from '@/types/address'
 
@@ -12,7 +12,7 @@ const getMemberAddressData = async () => {
 }
 
 //初始化调用
-onShow(() => {
+onLoad(() => {
   getMemberAddressData()
 })
 </script>
@@ -35,7 +35,25 @@ onShow(() => {
               <navigator
                 class="edit"
                 hover-class="none"
-                :url="`/pagesMember/address-form/address-form?id=${item.id}`"
+                :url="`/pagesMember/address-form/address-form?id=1`"
+              >
+                修改
+              </navigator>
+            </view>
+          </view>
+          <!-- 收货地址项 -->
+          <view class="item">
+            <view class="item-content">
+              <view class="user">
+                黑马小公主
+                <text class="contact">13222222222</text>
+                <text v-if="false" class="badge">默认</text>
+              </view>
+              <view class="locate">北京市 北京市 顺义区 黑马程序员</view>
+              <navigator
+                class="edit"
+                hover-class="none"
+                :url="`/pagesMember/address-form/address-form?id=2`"
               >
                 修改
               </navigator>

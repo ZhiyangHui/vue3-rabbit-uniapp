@@ -36,11 +36,7 @@ const onSwitchChange: UniHelper.SwitchOnChange = (event) => {
 
 //提交表单
 const onSubmit = async () => {
-  await postMemberAddressAPI(form.value)
-  uni.showToast({ icon: 'success', title: '添加成功' })
-  setTimeout(() => {
-    uni.navigateBack()
-  }, 500)
+  postMemberAddressAPI(form.value)
 }
 </script>
 
