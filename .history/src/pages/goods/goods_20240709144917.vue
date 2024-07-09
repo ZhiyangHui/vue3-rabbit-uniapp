@@ -105,8 +105,6 @@ onLoad(() => {
     v-model="isShowSku"
     :localdata="localdata"
     :mode="mode"
-    add-cart-background-color="#FFA868"
-    buy-now-background-color="#27BA9B"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">
     <!-- 基本信息 -->
@@ -211,8 +209,8 @@ onLoad(() => {
       </navigator>
     </view>
     <view class="buttons">
-      <view @tap="openSkuPopup(SkuMode.Cart)" class="addcart"> 加入购物车 </view>
-      <view @tap="openSkuPopup(SkuMode.Buy)" class="buynow"> 立即购买 </view>
+      <view @tap="openSkuPopup(SkuMode.Buy)" class="addcart"> 加入购物车 </view>
+      <view class="buynow"> 立即购买 </view>
     </view>
   </view>
 

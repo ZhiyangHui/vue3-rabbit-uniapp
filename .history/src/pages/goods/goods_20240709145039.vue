@@ -105,8 +105,7 @@ onLoad(() => {
     v-model="isShowSku"
     :localdata="localdata"
     :mode="mode"
-    add-cart-background-color="#FFA868"
-    buy-now-background-color="#27BA9B"
+    :add-cart-background-color="#FFA868"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">
     <!-- 基本信息 -->
