@@ -12,7 +12,7 @@ const getMemberAddressData = async () => {
 }
 
 //删除收货地址
-const onDeleteAddress = (id: string) => {
+const onDeleteAddress = async (id: string) => {
   //二次确认
   uni.showModal({
     content: '删除地址?',

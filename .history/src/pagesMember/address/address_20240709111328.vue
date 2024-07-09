@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getMemberAddressAPI, deleteMemberAddressByIdAPI } from '@/apis/address'
+import { getMemberAddressAPI } from '@/apis/address'
 import { onShow } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 import type { AddressItem } from '@/types/address'
@@ -9,21 +9,6 @@ const addressList = ref<AddressItem[]>([])
 const getMemberAddressData = async () => {
   const res = await getMemberAddressAPI()
   addressList.value = res.result
-}
-
-//删除收货地址
-const onDeleteAddress = (id: string) => {
-  //二次确认
-  uni.showModal({
-    content: '删除地址?',
-    success: async (res) => {
-      if (res.confirm) {
-        await deleteMemberAddressByIdAPI(id)
-        //重新获取收获地址
-        getMemberAddressData()
-      }
-    },
-  })
 }
 
 //初始化调用
@@ -37,10 +22,10 @@ onShow(() => {
     <!-- 地址列表 -->
     <scroll-view class="scroll-view" scroll-y>
       <view v-if="true" class="address">
-        <uni-swipe-action class="address-list">
+        <uni-swiper-action class="address-list">
           <!-- 收货地址项 -->
-          <uni-swipe-action-item class="item" v-for="item in addressList" :key="item.id">
-            <view class="item-content">
+          <view class="item" v-for="item in addressList" :key="item.id">
+            <uni-swiper-action-item class="item-content">
               <view class="user">
                 {{ item.receiver }}
                 <text class="contact">{{ item.contact }}</text>
@@ -55,12 +40,12 @@ onShow(() => {
                 修改
               </navigator>
               <!-- 右侧插槽 -->
-            </view>
-            <template #right>
-              <button @tap="onDeleteAddress(item.id)" class="delete-button">删除</button>
-            </template>
-          </uni-swipe-action-item>
-        </uni-swipe-action>
+              <template #right>
+                <button>删除</button>
+              </template>
+            </uni-swiper-action-item>
+          </view>
+        </uni-swiper-action>
       </view>
       <view v-else class="blank">暂无收货地址</view>
     </scroll-view>
