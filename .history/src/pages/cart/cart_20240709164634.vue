@@ -51,13 +51,13 @@ onShow(() => {
                 <view class="meta">
                   <view class="name ellipsis">{{ item.name }}</view>
                   <view class="attrsText ellipsis">{{ item.attrsText }}</view>
-                  <view class="price">{{ item.nowPrice }}</view>
+                  <view class="price">69.00</view>
                 </view>
               </navigator>
               <!-- 商品数量 -->
               <view class="count">
                 <text class="text">-</text>
-                <input class="input" type="number" :value="item.count.toString()" />
+                <input class="input" type="number" value="1" />
                 <text class="text">+</text>
               </view>
             </view>
