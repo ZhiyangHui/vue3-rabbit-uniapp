@@ -15,6 +15,9 @@ const query = defineProps<{
   id: string
 }>()
 
+//商品信息
+const localdata = ref({} as SkuPopupLocaldata)
+
 //获取商品详情信息
 const goods = ref<GoodsResult>()
 const getGoodsByIdData = async () => {
@@ -24,24 +27,7 @@ const getGoodsByIdData = async () => {
   localdata.value = {
     _id: res.result.id,
     name: res.result.name,
-    goods_thumb: res.result.mainPictures[0],
-    spec_list: res.result.specs.map((v) => {
-      return {
-        name: v.name,
-        list: v.values,
-      }
-    }),
-    sku_list: res.result.skus.map((v) => {
-      return {
-        _id: v.id,
-        goods_id: res.result.id,
-        goods_name: res.result.name,
-        image: v.picture,
-        price: v.price * 100,
-        stock: v.inventory,
-        sku_name_arr: v.specs.map((vv) => vv.valueName),
-      }
-    }),
+    goods_thumb: res.result.mainPictures,
   }
 }
 
@@ -74,10 +60,7 @@ const openPopup = (name: typeof popupName.value) => {
 }
 
 //是否显示sku
-const isShowSku = ref(false)
-
-//商品信息
-const localdata = ref({} as SkuPopupLocaldata)
+const isShowSku = ref(true)
 
 onLoad(() => {
   getGoodsByIdData()
@@ -118,7 +101,7 @@ onLoad(() => {
       <view class="action">
         <view class="item arrow">
           <text class="label">选择</text>
-          <text @tap="isShowSku = true" class="text ellipsis"> 请选择商品规格 </text>
+          <text class="text ellipsis"> 请选择商品规格 </text>
         </view>
         <view class="item arrow">
           <text @tap="openPopup('address')" class="label">送至</text>

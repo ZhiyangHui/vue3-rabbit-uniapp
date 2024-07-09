@@ -31,17 +31,7 @@ const getGoodsByIdData = async () => {
         list: v.values,
       }
     }),
-    sku_list: res.result.skus.map((v) => {
-      return {
-        _id: v.id,
-        goods_id: res.result.id,
-        goods_name: res.result.name,
-        image: v.picture,
-        price: v.price * 100,
-        stock: v.inventory,
-        sku_name_arr: v.specs.map((vv) => vv.valueName),
-      }
-    }),
+    sku_list: res.result.skus,
   }
 }
 
@@ -118,7 +108,7 @@ onLoad(() => {
       <view class="action">
         <view class="item arrow">
           <text class="label">选择</text>
-          <text @tap="isShowSku = true" class="text ellipsis"> 请选择商品规格 </text>
+          <text class="text ellipsis"> 请选择商品规格 </text>
         </view>
         <view class="item arrow">
           <text @tap="openPopup('address')" class="label">送至</text>

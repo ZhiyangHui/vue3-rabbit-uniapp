@@ -37,7 +37,7 @@ const getGoodsByIdData = async () => {
         goods_id: res.result.id,
         goods_name: res.result.name,
         image: v.picture,
-        price: v.price * 100,
+        price: v.price,
         stock: v.inventory,
         sku_name_arr: v.specs.map((vv) => vv.valueName),
       }
