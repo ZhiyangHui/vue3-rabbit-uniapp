@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { deleteMemberCartAPI, getMemberCartAPI, putMemberCartBySkuIdAPI } from '@/apis/cart'
+import { deleteMemberCartAPI, getMemberCartAPI } from '@/apis/cart'
 import { useMemberStore } from '@/stores'
 import { onShow } from '@dcloudio/uni-app'
 import { ref } from 'vue'
@@ -31,9 +31,7 @@ const onDeleteCart = (skuId: string) => {
 }
 
 //修改商品数量
-const onChangeCount = (event: InputNumberBoxEvent) => {
-  putMemberCartBySkuIdAPI(event.index, { count: event.value })
-}
+const onChangeCount = (event: InputNumberBoxEvent) => {}
 
 //初始化调用
 onShow(() => {
@@ -80,7 +78,6 @@ onShow(() => {
                   v-model="item.count"
                   :min="1"
                   :max="item.stock"
-                  :index="item.skuId"
                   @change="onChangeCount"
                 ></vk-data-input-number-box>
               </view>

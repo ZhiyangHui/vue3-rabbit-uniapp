@@ -32,7 +32,7 @@ const onDeleteCart = (skuId: string) => {
 
 //修改商品数量
 const onChangeCount = (event: InputNumberBoxEvent) => {
-  putMemberCartBySkuIdAPI(event.index, { count: event.value })
+  putMemberCartBySkuIdAPI({event.index,  count: event.value })
 }
 
 //初始化调用
