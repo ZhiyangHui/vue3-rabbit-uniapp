@@ -121,9 +121,8 @@ onLoad(() => {
     buy-now-background-color="#27BA9B"
     ref="skuPopupRef"
     :actived-style="{
-      color: '#27BA9B',
-      borderColor: '27BA9B',
-      backgroundColor: '#EAF8F5',
+      color:'#27BA9B'
+      borderColor:'27BA9B'
     }"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">

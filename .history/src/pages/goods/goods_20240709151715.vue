@@ -120,11 +120,6 @@ onLoad(() => {
     add-cart-background-color="#FFA868"
     buy-now-background-color="#27BA9B"
     ref="skuPopupRef"
-    :actived-style="{
-      color: '#27BA9B',
-      borderColor: '27BA9B',
-      backgroundColor: '#EAF8F5',
-    }"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">
     <!-- 基本信息 -->

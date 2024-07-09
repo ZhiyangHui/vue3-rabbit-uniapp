@@ -123,7 +123,7 @@ onLoad(() => {
     :actived-style="{
       color: '#27BA9B',
       borderColor: '27BA9B',
-      backgroundColor: '#EAF8F5',
+      backgroundColor: '#FFA868',
     }"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">
