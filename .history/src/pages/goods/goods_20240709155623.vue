@@ -11,7 +11,7 @@ import type {
   SkuPopupLocaldata,
 } from '@/components/vk-data-goods-sku-popup/vk-data-goods-sku-popup'
 import { computed } from 'vue'
-import { postMemberCartAPI } from '@/apis/cart'
+import { postMemberAddressAPI } from '@/apis/address'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -109,10 +109,8 @@ const selectArrText = computed(() => {
 })
 
 //加入购物车事件
-const onAddCart = async (event: SkuPopupEvent) => {
-  await postMemberCartAPI({ skuId: event._id, count: event.buy_num })
-  uni.showToast({ title: '添加成功', icon: 'success' })
-  isShowSku.value = false
+const onAddCart = (event: SkuPopupEvent) => {
+  postMemberAddressAPI({ skuId: event._id, count: event.buy_num })
 }
 onLoad(() => {
   getGoodsByIdData()

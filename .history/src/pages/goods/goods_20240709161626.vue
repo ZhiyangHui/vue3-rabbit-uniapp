@@ -112,7 +112,6 @@ const selectArrText = computed(() => {
 const onAddCart = async (event: SkuPopupEvent) => {
   await postMemberCartAPI({ skuId: event._id, count: event.buy_num })
   uni.showToast({ title: '添加成功', icon: 'success' })
-  isShowSku.value = false
 }
 onLoad(() => {
   getGoodsByIdData()
