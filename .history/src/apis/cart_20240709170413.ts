@@ -16,10 +16,4 @@ export const getMemberCartAPI = () => {
   })
 }
 
-export const deleteMemberCartAPI = (data: { ids: string[] }) => {
-  return http({
-    method: 'DELETE',
-    url: '/member/cart',
-    data,
-  })
-}
+export const deleteMemberCartAPI = (data: { ids: string[] }) => {}

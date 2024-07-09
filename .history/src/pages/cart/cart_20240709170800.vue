@@ -20,7 +20,7 @@ const onDeleteCart = (skuId: string) => {
   //弹窗二次确认
   uni.showModal({
     content: '是否删除',
-    success: async (success) => {
+    success: (success) => {
       if (success.confirm) {
         await deleteMemberCartAPI({ ids: [skuId] })
         getMemberCartData()
