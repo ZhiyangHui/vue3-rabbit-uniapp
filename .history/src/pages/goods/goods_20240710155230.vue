@@ -116,9 +116,7 @@ const onAddCart = async (event: SkuPopupEvent) => {
 }
 
 //立即购买事件
-const onBuyNow = (event: SkuPopupEvent) => {
-  uni.navigateTo({ url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}` })
-}
+const onBuyNow = (event: SkuPopupEvent) => {}
 
 onLoad(() => {
   getGoodsByIdData()

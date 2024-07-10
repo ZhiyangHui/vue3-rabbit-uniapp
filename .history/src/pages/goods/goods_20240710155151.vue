@@ -114,12 +114,6 @@ const onAddCart = async (event: SkuPopupEvent) => {
   uni.showToast({ title: '添加成功', icon: 'success' })
   isShowSku.value = false
 }
-
-//立即购买事件
-const onBuyNow = (event: SkuPopupEvent) => {
-  uni.navigateTo({ url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}` })
-}
-
 onLoad(() => {
   getGoodsByIdData()
 })
@@ -139,7 +133,7 @@ onLoad(() => {
       borderColor: '27BA9B',
       backgroundColor: '#EAF8F5',
     }"
-    @buy-now="onBuyNow"
+    @buy-now="onBuy"
     @add-cart="onAddCart"
   ></vk-data-goods-sku-popup>
   <scroll-view scroll-y class="viewport">

@@ -38,7 +38,7 @@ const getMemberOrderPreData = async () => {
       count: query.count,
       skuId: query.skuId,
     })
-    orderPre.value = res.result
+    orderPre.value = res.result as OrderPreResult
   } else {
     const res = await getMemberOrderPreAPI()
     orderPre.value = res.result

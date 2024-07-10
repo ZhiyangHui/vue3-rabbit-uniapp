@@ -24,7 +24,6 @@ const onChangeDelivery: UniHelper.SelectorPickerOnChange = (ev) => {
   activeIndex.value = ev.detail.value
 }
 
-//页面参数
 const query = defineProps<{
   skuId?: string
   count?: string

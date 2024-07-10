@@ -8,14 +8,9 @@ export const getMemberOrderPreAPI = () => {
   })
 }
 
-export const getMemberOrderPreNowAPI = (data: {
-  skuId: string
-  count: string
-  addressId?: string
-}) => {
-  return http<OrderPreResult>({
+export const getMemberOrderPreNowAPI = () => {
+  return http({
     method: 'GET',
     url: '/member/order/pre/now',
-    data,
   })
 }

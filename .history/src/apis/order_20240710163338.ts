@@ -13,9 +13,11 @@ export const getMemberOrderPreNowAPI = (data: {
   count: string
   addressId?: string
 }) => {
-  return http<OrderPreResult>({
-    method: 'GET',
-    url: '/member/order/pre/now',
-    data,
-  })
+  return (
+    http<OrderPreResult>({
+      method: 'GET',
+      url: '/member/order/pre/now',
+    }),
+    data
+  )
 }

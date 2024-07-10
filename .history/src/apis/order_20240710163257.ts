@@ -16,6 +16,5 @@ export const getMemberOrderPreNowAPI = (data: {
   return http<OrderPreResult>({
     method: 'GET',
     url: '/member/order/pre/now',
-    data,
   })
 }
