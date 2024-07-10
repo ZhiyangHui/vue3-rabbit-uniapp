@@ -13,6 +13,7 @@ import type { InputNumberBoxEvent } from '@/components/vk-data-input-number-box/
 import { computed } from 'vue'
 import XtxGuess from '@/components/XtxGuess.vue'
 import { useGuessList } from '@/composables'
+import type { XtxGuessInstance } from '@/types/component'
 //获取会员store
 const memberStore = useMemberStore()
 
@@ -92,6 +93,10 @@ const gotoPayment = () => {
 }
 
 //猜你喜欢分页加载
+// const guessRef = ref<XtxGuessInstance>()
+// const onScrollTolower = () => {
+//   guessRef.value.getMore()
+// }
 const { guessRef, onScrollTolower } = useGuessList()
 
 //初始化调用

@@ -12,7 +12,7 @@ import type { CartItem } from '@/types/cart'
 import type { InputNumberBoxEvent } from '@/components/vk-data-input-number-box/vk-data-input-number-box'
 import { computed } from 'vue'
 import XtxGuess from '@/components/XtxGuess.vue'
-import { useGuessList } from '@/composables'
+import { useGuessList } from '@/composables/index.js'
 //获取会员store
 const memberStore = useMemberStore()
 
@@ -189,7 +189,7 @@ onShow(() => {
       </navigator>
     </view>
     <!-- 猜你喜欢 -->
-    <XtxGuess ref="guessRef" />
+    <XtxGuess ref="guessRef"></XtxGuess>
     <!-- 底部占位空盒子 -->
     <view class="toolbar-height"></view>
   </scroll-view>

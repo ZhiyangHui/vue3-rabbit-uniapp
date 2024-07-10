@@ -38,7 +38,7 @@ const { guessRef, onScrollTolower } = useGuessList()
 
 const isTriggered = ref(false)
 //自定义下拉刷新触发
-const onRefresh = async () => {
+const onRefresherrefresh = async () => {
   isTriggered.value = true
   guessRef.value?.resetData()
   await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
@@ -59,7 +59,7 @@ onLoad(async () => {
   <CustomNavbar></CustomNavbar>
   <scroll-view
     refresher-enabled="true"
-    @refresherrefresh="onRefresh"
+    @refresherrefresh="onRefreshe“
     :refresher-triggered="isTriggered"
     @scrolltolower="onScrollTolower"
     class="scroll-view"
