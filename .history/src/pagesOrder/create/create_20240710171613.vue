@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import type { OrderPreResult } from '@/types/order'
 import { useAddressesStore } from '@/stores/modules/address'
+import { title } from 'process'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -64,7 +65,7 @@ const onOrderSubmit = async () => {
     payChannel: 2,
     payType: 1,
   })
-  uni.redirectTo({ url: `/pagesOrder/detail/detail?id=${res.result.id}` })
+  console.log(res)
 }
 
 onLoad(() => {

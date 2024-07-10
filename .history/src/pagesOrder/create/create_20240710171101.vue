@@ -4,6 +4,7 @@ import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import type { OrderPreResult } from '@/types/order'
 import { useAddressesStore } from '@/stores/modules/address'
+import { title } from 'process'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -52,11 +53,11 @@ const selectedAddress = computed(() => {
 })
 
 //提交订单
-const onOrderSubmit = async () => {
+const onOrderSubmit = () => {
   if (!selectedAddress.value?.id) {
     return uni.showToast({ icon: 'none', title: '请选择收货地址' })
   }
-  const res = await postMemberOrderAPI({
+  postMemberOrderAPI({
     addressId: selectedAddress.value?.id,
     buyerMessage: buyerMessage.value,
     deliveryTimeType: activeDelivery.value.type,
@@ -64,7 +65,6 @@ const onOrderSubmit = async () => {
     payChannel: 2,
     payType: 1,
   })
-  uni.redirectTo({ url: `/pagesOrder/detail/detail?id=${res.result.id}` })
 }
 
 onLoad(() => {

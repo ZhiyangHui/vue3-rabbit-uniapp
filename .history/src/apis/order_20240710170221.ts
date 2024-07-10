@@ -21,7 +21,7 @@ export const getMemberOrderPreNowAPI = (data: {
 }
 
 export const postMemberOrderAPI = (data: OrderCreateParams) => {
-  return http<{ id: string }>({
+  return http({
     method: 'POST',
     url: '/member/order',
     data,
