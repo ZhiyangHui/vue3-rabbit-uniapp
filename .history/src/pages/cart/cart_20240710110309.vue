@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  deleteMemberCartAPI,
-  getMemberCartAPI,
-  putMemberCartBySkuIdAPI,
-  putMemberCartSelectedAPI,
-} from '@/apis/cart'
+import { deleteMemberCartAPI, getMemberCartAPI, putMemberCartBySkuIdAPI } from '@/apis/cart'
 import { useMemberStore } from '@/stores'
 import { onShow } from '@dcloudio/uni-app'
 import { ref } from 'vue'
@@ -58,8 +53,6 @@ const onChangeSelectedAll = () => {
   cartList.value.forEach((item) => {
     item.selected = _isSelectedAll
   })
-  //后端更新
-  putMemberCartSelectedAPI({ selected: _isSelectedAll })
 }
 
 //初始化调用

@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  deleteMemberCartAPI,
-  getMemberCartAPI,
-  putMemberCartBySkuIdAPI,
-  putMemberCartSelectedAPI,
-} from '@/apis/cart'
+import { deleteMemberCartAPI, getMemberCartAPI, putMemberCartBySkuIdAPI } from '@/apis/cart'
 import { useMemberStore } from '@/stores'
 import { onShow } from '@dcloudio/uni-app'
 import { ref } from 'vue'
@@ -49,18 +44,8 @@ const onChangeSelected = (item: CartItem) => {
 
 //计算全选状态
 const isSelectedAll = computed(() => {
-  return cartList.value.length && cartList.value.every((v) => v.selected)
+  return false
 })
-
-//修改选中状态-全选修改
-const onChangeSelectedAll = () => {
-  const _isSelectedAll = !isSelectedAll.value
-  cartList.value.forEach((item) => {
-    item.selected = _isSelectedAll
-  })
-  //后端更新
-  putMemberCartSelectedAPI({ selected: _isSelectedAll })
-}
 
 //初始化调用
 onShow(() => {
@@ -135,7 +120,7 @@ onShow(() => {
       </view>
       <!-- 吸底工具栏 -->
       <view class="toolbar">
-        <text @tap="onChangeSelectedAll" class="all" :class="{ checked: isSelectedAll }">全选</text>
+        <text class="all" :class="{ checked: true }">全选</text>
         <text class="text">合计:</text>
         <text class="amount">100</text>
         <view class="button-grounp">

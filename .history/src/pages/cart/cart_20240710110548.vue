@@ -59,7 +59,7 @@ const onChangeSelectedAll = () => {
     item.selected = _isSelectedAll
   })
   //后端更新
-  putMemberCartSelectedAPI({ selected: _isSelectedAll })
+  putMemberCartSe
 }
 
 //初始化调用
