@@ -55,7 +55,6 @@ onShow(() => {
               </view>
               <view class="locate">{{ item.fullLocation }} {{ item.address }}</view>
               <navigator
-                @tap.stop="() => {}"
                 class="edit"
                 hover-class="none"
                 :url="`/pagesMember/address-form/address-form?id=${item.id}`"

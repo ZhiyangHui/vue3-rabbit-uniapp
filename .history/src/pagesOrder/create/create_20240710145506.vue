@@ -3,7 +3,6 @@ import { getMemberOrderPreAPI } from '@/apis/order'
 import { computed, ref } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
 import type { OrderPreResult } from '@/types/order'
-import { useAddressesStore } from '@/stores/modules/address'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -31,10 +30,9 @@ const getMemberOrderPreData = async () => {
   orderPre.value = res.result
 }
 
-const addressStore = useAddressesStore()
 //收货地址
 const selectedAddress = computed(() => {
-  return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
+  return orderPre.value?.userAddresses.find((v) => v.isDefault)
 })
 
 onLoad(() => {
