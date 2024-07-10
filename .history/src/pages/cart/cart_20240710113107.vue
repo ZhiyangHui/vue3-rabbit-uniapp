@@ -11,7 +11,6 @@ import { ref } from 'vue'
 import type { CartItem } from '@/types/cart'
 import type { InputNumberBoxEvent } from '@/components/vk-data-input-number-box/vk-data-input-number-box'
 import { computed } from 'vue'
-import XtxGuess from '@/components/XtxGuess.vue'
 
 //获取会员store
 const memberStore = useMemberStore()
@@ -75,21 +74,8 @@ const selectedCartListCount = computed(() => {
 
 //计算选中总价格
 const selectedCartListMoney = computed(() => {
-  return selectedCartList.value
-    .reduce((sum, item) => sum + item.count * item.nowPrice, 0)
-    .toFixed(2)
+  return selectedCartList.value.reduce((sum, item) => sum + item.count * item.nowPrice)
 })
-
-const gotoPayment = () => {
-  if (selectedCartListCount.value === 0) {
-    return uni.showToast({
-      icon: 'none',
-      title: '请选择商品',
-    })
-  }
-  //跳转到计算页面
-  uni.showToast({ title: '等待完成' })
-}
 
 //初始化调用
 onShow(() => {
@@ -166,13 +152,9 @@ onShow(() => {
       <view class="toolbar">
         <text @tap="onChangeSelectedAll" class="all" :class="{ checked: isSelectedAll }">全选</text>
         <text class="text">合计:</text>
-        <text class="amount">{{ selectedCartListMoney }}</text>
+        <text class="amount">100</text>
         <view class="button-grounp">
-          <view
-            @tap="gotoPayment"
-            class="button payment-button"
-            :class="{ disabled: selectedCartListCount === 0 }"
-          >
+          <view class="button payment-button" :class="{ disabled: selectedCartListCount === 0 }">
             去结算({{ selectedCartListCount }})
           </view>
         </view>

@@ -82,13 +82,11 @@ const selectedCartListMoney = computed(() => {
 
 const gotoPayment = () => {
   if (selectedCartListCount.value === 0) {
-    return uni.showToast({
+    uni.showToast({
       icon: 'none',
       title: '请选择商品',
     })
   }
-  //跳转到计算页面
-  uni.showToast({ title: '等待完成' })
 }
 
 //初始化调用
