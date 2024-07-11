@@ -93,7 +93,7 @@ onLoad(() => {
     </view>
   </view>
   <scroll-view scroll-y class="viewport" id="scroller" @scrolltolower="onScrollTolower">
-    <template v-if="order">
+    <template v-if="true">
       <!-- 订单状态 -->
       <view class="overview" :style="{ paddingTop: safeAreaInsets!.top + 20 + 'px' }">
         <!-- 待付款状态:展示去支付按钮和倒计时 -->
@@ -109,7 +109,7 @@ onLoad(() => {
         <!-- 其他订单状态:展示再次购买按钮 -->
         <template v-else>
           <!-- 订单状态文字 -->
-          <view class="status"> {{ orderStateList[order!.orderState].text }}</view>
+          <view class="status"> {{ orderStateList[order?.orderState].text }}</view>
           <view class="button-group">
             <navigator
               class="button"

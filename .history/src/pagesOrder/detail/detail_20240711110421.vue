@@ -3,8 +3,6 @@ import { useGuessList } from '@/composables'
 import { ref } from 'vue'
 import { onReady, onLoad } from '@dcloudio/uni-app'
 import { getMemberOrderByIdAPI } from '@/apis/order'
-import type { OrderResult } from '@/types/order'
-import { OrderState, orderStateList } from '@/apis/constants'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -67,15 +65,9 @@ onReady(() => {
 })
 
 //获取订单详情
-const order = ref<OrderResult>()
 const getMemberOrderByIdData = async () => {
   const res = await getMemberOrderByIdAPI(query.id)
-  order.value = res.result
 }
-
-onLoad(() => {
-  getMemberOrderByIdData()
-})
 </script>
 
 <template>
@@ -93,11 +85,11 @@ onLoad(() => {
     </view>
   </view>
   <scroll-view scroll-y class="viewport" id="scroller" @scrolltolower="onScrollTolower">
-    <template v-if="order">
+    <template v-if="true">
       <!-- 订单状态 -->
       <view class="overview" :style="{ paddingTop: safeAreaInsets!.top + 20 + 'px' }">
         <!-- 待付款状态:展示去支付按钮和倒计时 -->
-        <template v-if="order?.orderState === OrderState.DaiFuKuan">
+        <template v-if="true">
           <view class="status icon-clock">等待付款</view>
           <view class="tips">
             <text class="money">应付金额: ¥ 99.00</text>
@@ -109,7 +101,7 @@ onLoad(() => {
         <!-- 其他订单状态:展示再次购买按钮 -->
         <template v-else>
           <!-- 订单状态文字 -->
-          <view class="status"> {{ orderStateList[order!.orderState].text }}</view>
+          <view class="status"> 待付款 </view>
           <view class="button-group">
             <navigator
               class="button"

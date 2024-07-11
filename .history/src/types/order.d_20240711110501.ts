@@ -1,4 +1,3 @@
-import type { OrderState } from '@/apis/constants'
 import type { AddressItem } from './address'
 
 /** 获取预付订单 返回信息 */
@@ -74,7 +73,7 @@ export type OrderResult = {
   /** 订单编号 */
   id: string
   /** 订单状态，1为待付款、2为待发货、3为待收货、4为待评价、5为已完成、6为已取消 */
-  orderState: OrderState
+  orderState: number
   /** 倒计时--剩余的秒数 -1 表示已经超时，正数表示倒计时未结束 */
   countdown: number
   /** 商品集合 [ 商品信息 ] */
