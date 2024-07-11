@@ -113,7 +113,6 @@ const onTimeup = () => {
               color="#fff"
               :show-day="false"
               :show-colon="false"
-              splitor-color="#fff"
               @timeup="onTimeup"
             />
           </view>

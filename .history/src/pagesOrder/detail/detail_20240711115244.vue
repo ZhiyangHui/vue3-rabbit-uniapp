@@ -111,9 +111,7 @@ const onTimeup = () => {
             <uni-countdown
               :second="order.countdown"
               color="#fff"
-              :show-day="false"
-              :show-colon="false"
-              splitor-color="#fff"
+              :show-day="flase"
               @timeup="onTimeup"
             />
           </view>
