@@ -5,7 +5,7 @@ import { onReady, onLoad } from '@dcloudio/uni-app'
 import { getMemberOrderByIdAPI } from '@/apis/order'
 import type { OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
-import { getPayWxPayMiniPayAPI, getPayMockAPI } from '@/apis/pay'
+import { getPayWxPayMiniPayAPI } from '@/apis/pay'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -86,14 +86,9 @@ const onTimeup = () => {
 
 //订单支付
 const onOrderPay = async () => {
-  if (import.meta.env.DEV) {
-    //开发环境
-    await getPayMockAPI({ orderId: query.id })
-  } else {
-    //正式环境的业务
-    const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
-    wx.requestPayment(res.result)
-  }
+  //正式环境的业务
+  const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
+  wx.requestPayment(res.result)
   //关闭当前页之后跳转
   uni.redirectTo({ url: `/pagesOrder/payment/payment?id=${query.id}` })
 }

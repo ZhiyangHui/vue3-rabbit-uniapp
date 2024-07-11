@@ -88,12 +88,11 @@ const onTimeup = () => {
 const onOrderPay = async () => {
   if (import.meta.env.DEV) {
     //开发环境
-    await getPayMockAPI({ orderId: query.id })
-  } else {
-    //正式环境的业务
-    const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
-    wx.requestPayment(res.result)
+    getPayMockAPI({ orderId: query.id })
   }
+  //正式环境的业务
+  const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
+  wx.requestPayment(res.result)
   //关闭当前页之后跳转
   uni.redirectTo({ url: `/pagesOrder/payment/payment?id=${query.id}` })
 }
