@@ -2,7 +2,7 @@
 import { useGuessList } from '@/composables'
 import { ref } from 'vue'
 import { onReady, onLoad } from '@dcloudio/uni-app'
-import { getMemberOrderByIdAPI, getMemberOrderConsignmentByIdAPI } from '@/apis/order'
+import { getMemberOrderByIdAPI } from '@/apis/order'
 import type { OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
 import { getPayWxPayMiniPayAPI, getPayMockAPI } from '@/apis/pay'
@@ -101,12 +101,9 @@ const onOrderPay = async () => {
 //是否为开发环境
 const isDev = import.meta.env.DEV
 //模拟发货
-const onOrderSend = async () => {
+const onOrderSend = () => {
   if (isDev) {
-    await getMemberOrderConsignmentByIdAPI(query.id)
-    uni.showToast({ icon: 'success', title: '模拟发货完成' })
-    //主动更新订单状态
-    order.value!.orderState = OrderState.DaiShouHuo
+    getMemberOrderConsignmentByIdAPI()
   }
 }
 </script>

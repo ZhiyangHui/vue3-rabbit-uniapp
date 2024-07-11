@@ -35,9 +35,4 @@ export const getMemberOrderByIdAPI = (id: string) => {
   })
 }
 
-export const getMemberOrderConsignmentByIdAPI = (id: string) => {
-  return http({
-    method: 'GET',
-    url: `/member/order/consignment/${id}`,
-  })
-}
+export const getMemberOrderConsignmentByIdAPI = (id: string) => {}

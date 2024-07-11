@@ -104,9 +104,8 @@ const isDev = import.meta.env.DEV
 const onOrderSend = async () => {
   if (isDev) {
     await getMemberOrderConsignmentByIdAPI(query.id)
-    uni.showToast({ icon: 'success', title: '模拟发货完成' })
     //主动更新订单状态
-    order.value!.orderState = OrderState.DaiShouHuo
+    order.value?.orderState = OrderState.DaiShouHuo
   }
 }
 </script>
