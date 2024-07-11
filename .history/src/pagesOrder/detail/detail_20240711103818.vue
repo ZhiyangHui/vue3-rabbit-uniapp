@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useGuessList } from '@/composables'
 import { ref } from 'vue'
-import { onReady } from '@dcloudio/uni-app'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -32,36 +31,6 @@ const query = defineProps<{
 
 //获取页面栈
 const pages = getCurrentPages()
-//获取当前页面实例，数组最后一项
-const pageInstance = pages.at(-1) as any
-
-//页面渲染完毕，绑定动画效果
-onReady(() => {
-  pageInstance.animate(
-    '.navbar',
-    [{ backgroundColor: 'transparent' }, { backgroundColor: '#f8f8f8' }],
-    1000,
-    {
-      scrollSource: '#scroller',
-      timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
-    },
-    pageInstance.animate('.navbar .title', [{ color: 'transparent' }, { color: '#000' }], 1000, {
-      scrollSource: '#scroller',
-      timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
-    }),
-    // 动画效果,导航栏返回按钮
-    pageInstance.animate('.navbar .back', [{ color: '#fff' }, { color: '#000' }], 1000, {
-      scrollSource: '#scroller',
-      timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
-    }),
-  )
-})
 </script>
 
 <template>

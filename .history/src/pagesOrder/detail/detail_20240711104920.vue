@@ -44,22 +44,9 @@ onReady(() => {
     {
       scrollSource: '#scroller',
       timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
+      startScrollOffset: 120,
+      endScrollOffset: 252,
     },
-    pageInstance.animate('.navbar .title', [{ color: 'transparent' }, { color: '#000' }], 1000, {
-      scrollSource: '#scroller',
-      timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
-    }),
-    // 动画效果,导航栏返回按钮
-    pageInstance.animate('.navbar .back', [{ color: '#fff' }, { color: '#000' }], 1000, {
-      scrollSource: '#scroller',
-      timeRange: 1000,
-      startScrollOffset: 0,
-      endScrollOffset: 50,
-    }),
   )
 })
 </script>
