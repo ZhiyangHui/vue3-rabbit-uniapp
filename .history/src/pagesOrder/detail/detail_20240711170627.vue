@@ -2,11 +2,7 @@
 import { useGuessList } from '@/composables'
 import { ref } from 'vue'
 import { onReady, onLoad } from '@dcloudio/uni-app'
-import {
-  getMemberOrderByIdAPI,
-  getMemberOrderConsignmentByIdAPI,
-  putMemberOrderReceiptByIdAPI,
-} from '@/apis/order'
+import { getMemberOrderByIdAPI, getMemberOrderConsignmentByIdAPI } from '@/apis/order'
 import type { OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
 import { getPayWxPayMiniPayAPI, getPayMockAPI } from '@/apis/pay'
@@ -112,19 +108,6 @@ const onOrderSend = async () => {
     //主动更新订单状态
     order.value!.orderState = OrderState.DaiShouHuo
   }
-}
-
-//确认收获
-const onOrderConfirm = () => {
-  uni.showModal({
-    content: '为保障您的权益，请收到货并确认无误之后，再确认收获',
-    success: async (success) => {
-      if (success.confirm) {
-        const res = await putMemberOrderReceiptByIdAPI(query.id)
-        order.value = res.result
-      }
-    },
-  })
 }
 </script>
 

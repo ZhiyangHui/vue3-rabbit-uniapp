@@ -121,7 +121,6 @@ const onOrderConfirm = () => {
     success: async (success) => {
       if (success.confirm) {
         const res = await putMemberOrderReceiptByIdAPI(query.id)
-        order.value = res.result
       }
     },
   })

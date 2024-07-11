@@ -118,10 +118,9 @@ const onOrderSend = async () => {
 const onOrderConfirm = () => {
   uni.showModal({
     content: '为保障您的权益，请收到货并确认无误之后，再确认收获',
-    success: async (success) => {
+    success: (success) => acync {
       if (success.confirm) {
-        const res = await putMemberOrderReceiptByIdAPI(query.id)
-        order.value = res.result
+        putMemberOrderReceiptByIdAPI(query.id)
       }
     },
   })

@@ -120,8 +120,7 @@ const onOrderConfirm = () => {
     content: '为保障您的权益，请收到货并确认无误之后，再确认收获',
     success: async (success) => {
       if (success.confirm) {
-        const res = await putMemberOrderReceiptByIdAPI(query.id)
-        order.value = res.result
+        await putMemberOrderReceiptByIdAPI(query.id)
       }
     },
   })
