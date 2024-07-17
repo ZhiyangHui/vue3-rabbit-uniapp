@@ -18,16 +18,10 @@ const getBannerData = async () => {
 //获取分类列表数据
 const categoryList = ref<CategoryTopItem[]>([])
 const activeIndex = ref(0)
-
 const getCategoryTopData = async () => {
   const res = await getCategoryTopAPI()
   categoryList.value = res.result
 }
-
-//获取跳转的categoryName
-const query = defineProps<{
-  index: string
-}>()
 
 //提取当前二级分类的数据
 const subCategoryList = computed(() => {
@@ -37,10 +31,13 @@ const subCategoryList = computed(() => {
 //是否数据加载完毕
 const isFinish = ref(false)
 
+//获取跳转的activeIndex
+defineProps<{
+  index: string
+}>()
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
-  console.log(query.index)
 })
 </script>
 

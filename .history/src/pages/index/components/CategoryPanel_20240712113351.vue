@@ -8,15 +8,7 @@ defineProps<{
 const categoryMap = [
   { index: 0, name: '居家' },
   { index: 1, name: '美食' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
+  { index: 2, name: '' },
 ]
 
 //跳转到category页面

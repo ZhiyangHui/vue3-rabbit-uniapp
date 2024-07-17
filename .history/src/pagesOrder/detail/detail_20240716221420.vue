@@ -132,10 +132,8 @@ const onOrderConfirm = () => {
 const onOrderDelete = () => {
   uni.showToast({
     content: '是否删除订单',
-    success: async (success) => {
+    success: (success) => {
       if (success.confirm) {
-        await deleteMemberOrderAPI({ ids: [query.id] })
-        uni.redirectTo({ url: '/pagesOrder/list/list' })
       }
     },
   })

@@ -135,7 +135,6 @@ const onOrderDelete = () => {
     success: async (success) => {
       if (success.confirm) {
         await deleteMemberOrderAPI({ ids: [query.id] })
-        uni.redirectTo({ url: '/pagesOrder/list/list' })
       }
     },
   })

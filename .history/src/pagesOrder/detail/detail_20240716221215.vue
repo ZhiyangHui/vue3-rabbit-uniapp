@@ -6,7 +6,6 @@ import {
   getMemberOrderByIdAPI,
   getMemberOrderConsignmentByIdAPI,
   putMemberOrderReceiptByIdAPI,
-  deleteMemberOrderAPI,
 } from '@/apis/order'
 import type { OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
@@ -123,19 +122,6 @@ const onOrderConfirm = () => {
       if (success.confirm) {
         const res = await putMemberOrderReceiptByIdAPI(query.id)
         order.value = res.result
-      }
-    },
-  })
-}
-
-//删除订单
-const onOrderDelete = () => {
-  uni.showToast({
-    content: '是否删除订单',
-    success: async (success) => {
-      if (success.confirm) {
-        await deleteMemberOrderAPI({ ids: [query.id] })
-        uni.redirectTo({ url: '/pagesOrder/list/list' })
       }
     },
   })
@@ -307,11 +293,7 @@ const onOrderDelete = () => {
           <!-- 待评价状态: 展示去评价 -->
           <view class="button" v-if="order.orderState === OrderState.DaiPingJia"> 去评价 </view>
           <!-- 待评价/已完成/已取消 状态: 展示删除订单 -->
-          <view
-            class="button delete"
-            v-if="order.orderState >= OrderState.DaiPingJia"
-            @tap="onOrderDelete"
-          >
+          <view class="button delete" v-if="order.orderState >= OrderState.DaiPingJia">
             删除订单
           </view>
         </template>

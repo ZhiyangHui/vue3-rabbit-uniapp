@@ -5,26 +5,10 @@ defineProps<{
   list: CategoryItem[]
 }>()
 
-const categoryMap = [
-  { index: 0, name: '居家' },
-  { index: 1, name: '美食' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-  { index: 2, name: '服饰' },
-]
-
 //跳转到category页面
-const onSwitch = (categoryName: string) => {
-  console.log(categoryName)
-
+const onSwitch = () => {
   uni.switchTab({
-    url: `/pages/category/category?categoryName=${categoryName}`,
+    url: '/pages/category/category',
   })
 }
 </script>
@@ -38,7 +22,7 @@ const onSwitch = (categoryName: string) => {
       v-for="item in list"
       :key="item.id"
     >
-      <image @tap="onSwitch(item.name)" class="icon" :src="item.icon"></image>
+      <image @tap="onSwitch" class="icon" :src="item.icon"></image>
       <text class="text">{{ item.name }}</text>
     </navigator>
   </view>

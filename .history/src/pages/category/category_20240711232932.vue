@@ -25,7 +25,7 @@ const getCategoryTopData = async () => {
 }
 
 //获取跳转的categoryName
-const query = defineProps<{
+defineProps<{
   index: string
 }>()
 
@@ -40,7 +40,7 @@ const isFinish = ref(false)
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
-  console.log(query.index)
+  console.log(index)
 })
 </script>
 

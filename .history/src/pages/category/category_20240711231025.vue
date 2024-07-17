@@ -25,9 +25,13 @@ const getCategoryTopData = async () => {
 }
 
 //获取跳转的categoryName
-const query = defineProps<{
-  index: string
+defineProps<{
+  categoryName: string
 }>()
+
+activeIndex.value = categoryList.value.find((v) => {
+  v.name === categoryName
+})
 
 //提取当前二级分类的数据
 const subCategoryList = computed(() => {
@@ -40,7 +44,6 @@ const isFinish = ref(false)
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
-  console.log(query.index)
 })
 </script>
 

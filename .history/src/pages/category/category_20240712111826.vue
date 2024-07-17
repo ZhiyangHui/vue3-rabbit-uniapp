@@ -40,7 +40,7 @@ const isFinish = ref(false)
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
-  console.log(query.index)
+  console.log(index)
 })
 </script>
 
