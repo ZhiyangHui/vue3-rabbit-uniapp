@@ -146,7 +146,7 @@ const onOrderConfirm = () => {
 
 //删除订单
 const onOrderDelete = () => {
-  uni.showModal({
+  uni.showToast({
     content: '是否删除订单',
     success: async (success) => {
       if (success.confirm) {

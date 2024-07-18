@@ -12,7 +12,6 @@ import {
 import type { LogisticItem, OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
 import { getPayWxPayMiniPayAPI, getPayMockAPI } from '@/apis/pay'
-import XtxGuess from '@/components/XtxGuess.vue'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -146,7 +145,7 @@ const onOrderConfirm = () => {
 
 //删除订单
 const onOrderDelete = () => {
-  uni.showModal({
+  uni.showToast({
     content: '是否删除订单',
     success: async (success) => {
       if (success.confirm) {
