@@ -9,7 +9,7 @@ import {
   deleteMemberOrderAPI,
   getMemberOrderLogisticsByIdAPI,
 } from '@/apis/order'
-import type { LogisticItem, OrderResult } from '@/types/order'
+import type { OrderResult } from '@/types/order'
 import { OrderState, orderStateList } from '@/apis/constants'
 import { getPayWxPayMiniPayAPI, getPayMockAPI } from '@/apis/pay'
 
@@ -88,10 +88,9 @@ const getMemberOrderByIdData = async () => {
 }
 
 //获取物流信息
-const logisticList = ref<LogisticItem[]>([])
 const getMemberOrderLogisticsByIdData = async () => {
-  const res = await getMemberOrderLogisticsByIdAPI(query.id)
-  logisticList.value = res.result.list
+  const res = getMemberOrderByIdAPI(query.id)
+  console.log(res)
 }
 
 onLoad(() => {
@@ -144,17 +143,17 @@ const onOrderConfirm = () => {
 }
 
 //删除订单
-// const onOrderDelete = () => {
-//   uni.showToast({
-//     content: '是否删除订单',
-//     success: async (success) => {
-//       if (success.confirm) {
-//         await deleteMemberOrderAPI({ ids: [query.id] })
-//         uni.redirectTo({ url: '/pagesOrder/list/list' })
-//       }
-//     },
-//   })
-// }
+const onOrderDelete = () => {
+  uni.showToast({
+    content: '是否删除订单',
+    success: async (success) => {
+      if (success.confirm) {
+        await deleteMemberOrderAPI({ ids: [query.id] })
+        uni.redirectTo({ url: '/pagesOrder/list/list' })
+      }
+    },
+  })
+}
 </script>
 
 <template>
@@ -225,16 +224,16 @@ const onOrderConfirm = () => {
       <!-- 配送状态 -->
       <view class="shipment">
         <!-- 订单物流信息 -->
-        <view v-for="item in logisticList" :key="item.id" class="item">
+        <view v-for="item in 1" :key="item" class="item">
           <view class="message">
-            {{ item.text }}
+            您已在广州市天河区黑马程序员完成取件，感谢使用菜鸟驿站，期待再次为您服务。
           </view>
-          <view class="date"> {{ item.time }} </view>
+          <view class="date"> 2023-04-14 13:14:20 </view>
         </view>
         <!-- 用户收货地址 -->
         <view class="locate">
-          <view class="user"> {{ order.receiverContact }} {{ order.receiverMobile }} </view>
-          <view class="address"> {{ order.receiverAddress }} </view>
+          <view class="user"> 张三 13333333333 </view>
+          <view class="address"> 广东省 广州市 天河区 黑马程序员 </view>
         </view>
       </view>
 
@@ -322,7 +321,11 @@ const onOrderConfirm = () => {
           <!-- 待评价状态: 展示去评价 -->
           <view class="button" v-if="order.orderState === OrderState.DaiPingJia"> 去评价 </view>
           <!-- 待评价/已完成/已取消 状态: 展示删除订单 -->
-          <view class="button delete" v-if="order.orderState >= OrderState.DaiPingJia">
+          <view
+            class="button delete"
+            v-if="order.orderState >= OrderState.DaiPingJia"
+            @tap="onOrderDelete"
+          >
             删除订单
           </view>
         </template>
