@@ -18,7 +18,7 @@ const query = defineProps<{
 }>()
 
 //高亮下标
-const activeIndex = ref(orderTabs.value.findIndex((v) => v.orderState === Number(query.type)))
+const activeIndex = ref(0)
 </script>
 
 <template>
