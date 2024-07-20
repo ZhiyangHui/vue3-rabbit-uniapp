@@ -5,6 +5,9 @@ import OrderList from './components/OrderList.vue'
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 
+//定义props
+const props = deefineProps<>()
+
 // tabs 数据
 const orderTabs = ref([
   { orderState: 0, title: '全部' },
@@ -43,7 +46,7 @@ const activeIndex = ref(orderTabs.value.findIndex((v) => v.orderState === Number
       <!-- 滑动项 -->
       <swiper-item v-for="item in orderTabs" :key="item.title">
         <!-- 订单列表 -->
-        <OrderList :order-state="item.orderState"></OrderList>
+        <OrderList></OrderList>
       </swiper-item>
     </swiper>
   </view>

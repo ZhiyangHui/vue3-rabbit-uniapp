@@ -3,8 +3,6 @@ import type {
   OrderLogisticResult,
   OrderPreResult,
   OrderResult,
-  OrderListParams,
-  OrderListResult,
 } from '@/types/order'
 import { http } from '@/utils/http'
 
