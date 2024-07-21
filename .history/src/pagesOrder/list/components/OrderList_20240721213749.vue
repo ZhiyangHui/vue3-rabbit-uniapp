@@ -32,17 +32,14 @@ const getMemberOrderData = async () => {
 const onOrderPay = async (id: string) => {
   if (import.meta.env.DEV) {
     //开发环境
-    await getPayMockAPI({ orderId: id })
+    await getPayMockAPI({ orderId: query.id })
   } else {
     //正式环境的业务
-    const res = await getPayWxPayMiniPayAPI({ orderId: id })
+    const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
     wx.requestPayment(res.result)
   }
-  //成功提示
-  uni.showToast({ title: '支付成功' })
-  //更新订单状态
-  const order = orderList.value.find((v) => v.id === id)
-  order!.orderState = OrderState.DaiFaHuo
+  //关闭当前页之后跳转
+  uni.redirectTo({ url: `/pagesOrder/payment/payment?id=${query.id}` })
 }
 
 onMounted(() => {
@@ -87,7 +84,7 @@ onMounted(() => {
       <view class="action">
         <!-- 待付款状态：显示去支付按钮 -->
         <template v-if="item.orderState === OrderState.DaiFuKuan">
-          <view class="button primary" @tap="onOrderPay(item.id)">去支付</view>
+          <view class="button primary">去支付</view>
         </template>
         <template v-else>
           <navigator
