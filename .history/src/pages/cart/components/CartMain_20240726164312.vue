@@ -104,6 +104,7 @@ onShow(() => {
   if (memberStore.profile) {
     getMemberCartData()
   }
+  console.log(safeAreaInsets.safeArea)
 })
 </script>
 

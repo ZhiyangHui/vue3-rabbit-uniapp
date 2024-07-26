@@ -14,9 +14,8 @@ import { computed } from 'vue'
 import XtxGuess from '@/components/XtxGuess.vue'
 import { useGuessList } from '@/composables'
 
-const safeAreaInsets = defineProps<{
-  safeArea?: UniApp.SafeAreaInsets
-}>()
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
 
 //获取会员store
 const memberStore = useMemberStore()
@@ -171,7 +170,7 @@ onShow(() => {
         </navigator>
       </view>
       <!-- 吸底工具栏 -->
-      <view class="toolbar" :style="{ paddingBottom: safeAreaInsets?.safeArea?.bottom + 'px' }">
+      <view class="toolbar" :style="{ paddingBottom: safeAreaInsets?.bottom + 'px' }">
         <text @tap="onChangeSelectedAll" class="all" :class="{ checked: isSelectedAll }">全选</text>
         <text class="text">合计:</text>
         <text class="amount">{{ selectedCartListMoney }}</text>
@@ -410,7 +409,7 @@ onShow(() => {
   bottom: var(--window-bottom);
   z-index: 1;
 
-  height: 100rpx;
+  // height: 100rpx;
   padding: 0 20rpx;
   display: flex;
   align-items: center;

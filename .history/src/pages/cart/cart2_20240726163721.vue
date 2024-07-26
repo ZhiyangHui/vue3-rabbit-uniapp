@@ -5,7 +5,7 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>
 
 <template>
-  <CartMain :safeArea="safeAreaInsets"></CartMain>
+  <CartMain :safeAreaInsets=></CartMain>
 </template>
 
 <style></style>
