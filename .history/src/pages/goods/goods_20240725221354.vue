@@ -122,22 +122,18 @@ const onAddCart = async (event: SkuPopupEvent) => {
 //找默认地址
 const orderPre = ref<OrderPreResult>()
 const getMemberOrderPreData = async () => {
-  const res = await getMemberOrderPreAPI()
-  orderPre.value = res.result
+    const res = await getMemberOrderPreAPI()
+    orderPre.value = res.result
 }
-
 const selectedAddress = computed(() => {
-  return orderPre.value?.userAddresses.find((v) => v.isDefault)
+  return  orderPre.value?.userAddresses.find((v) => v.isDefault)
 })
 const onBuyNow = (event: SkuPopupEvent) => {
-  uni.navigateTo({
-    url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${selectedAddress.value?.id}`,
-  })
+  uni.navigateTo({ url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${}` })
 }
 
 onLoad(() => {
   getGoodsByIdData()
-  getMemberOrderPreData()
 })
 </script>
 

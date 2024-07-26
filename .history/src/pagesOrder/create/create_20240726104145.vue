@@ -49,6 +49,7 @@ const getMemberOrderPreData = async () => {
 
 const addressStore = useAddressesStore()
 //收货地址
+
 const selectedAddress = computed(() => {
   return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
 })

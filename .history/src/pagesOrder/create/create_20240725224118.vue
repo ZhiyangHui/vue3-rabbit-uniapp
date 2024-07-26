@@ -34,7 +34,7 @@ const query = defineProps<{
 //获取订单信息
 const orderPre = ref<OrderPreResult>()
 const getMemberOrderPreData = async () => {
-  if (query.count && query.skuId && query.addressId) {
+  if (query.count && query.skuId) {
     const res = await getMemberOrderPreNowAPI({
       count: query.count,
       skuId: query.skuId,
@@ -49,8 +49,16 @@ const getMemberOrderPreData = async () => {
 
 const addressStore = useAddressesStore()
 //收货地址
+
 const selectedAddress = computed(() => {
-  return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
+  if (query.addressId) {
+    return (
+      addressStore.selectedAddress ||
+      orderPre.value?.userAddresses.find((v) => v.address === query.addressId)
+    )
+  } else {
+    return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
+  }
 })
 
 //提交订单

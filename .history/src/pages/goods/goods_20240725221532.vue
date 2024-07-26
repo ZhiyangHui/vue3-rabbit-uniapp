@@ -14,6 +14,7 @@ import { computed } from 'vue'
 import { postMemberCartAPI } from '@/apis/cart'
 import { getMemberOrderPreAPI } from '@/apis/order'
 import type { OrderPreResult } from '@/types/order'
+import { log } from 'console'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -124,6 +125,7 @@ const orderPre = ref<OrderPreResult>()
 const getMemberOrderPreData = async () => {
   const res = await getMemberOrderPreAPI()
   orderPre.value = res.result
+  console.log(orderPre.value.userAddresses)
 }
 
 const selectedAddress = computed(() => {
@@ -131,7 +133,7 @@ const selectedAddress = computed(() => {
 })
 const onBuyNow = (event: SkuPopupEvent) => {
   uni.navigateTo({
-    url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${selectedAddress.value?.id}`,
+    url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${orderPre.value?.userAddresses}`,
   })
 }
 

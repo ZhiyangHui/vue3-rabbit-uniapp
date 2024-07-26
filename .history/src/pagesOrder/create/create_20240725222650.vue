@@ -34,7 +34,7 @@ const query = defineProps<{
 //获取订单信息
 const orderPre = ref<OrderPreResult>()
 const getMemberOrderPreData = async () => {
-  if (query.count && query.skuId && query.addressId) {
+  if (query.count && query.skuId) {
     const res = await getMemberOrderPreNowAPI({
       count: query.count,
       skuId: query.skuId,
@@ -52,6 +52,9 @@ const addressStore = useAddressesStore()
 const selectedAddress = computed(() => {
   return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
 })
+if (query.addressId) {
+  selectedAddress.value?.address = query.addressId
+}
 
 //提交订单
 const onOrderSubmit = async () => {
@@ -71,7 +74,7 @@ const onOrderSubmit = async () => {
 
 onLoad(() => {
   getMemberOrderPreData()
-  console.log(selectedAddress)
+  console.log(query.addressId)
 })
 </script>
 

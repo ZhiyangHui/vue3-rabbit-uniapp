@@ -49,8 +49,16 @@ const getMemberOrderPreData = async () => {
 
 const addressStore = useAddressesStore()
 //收货地址
+
 const selectedAddress = computed(() => {
-  return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
+  if (query.addressId) {
+    return (
+      addressStore.selectedAddress ||
+      orderPre.value?.userAddresses.find((v) => v.address === query.addressId)
+    )
+  } else {
+    return addressStore.selectedAddress || orderPre.value?.userAddresses.find((v) => v.isDefault)
+  }
 })
 
 //提交订单
