@@ -15,7 +15,6 @@ import { postMemberCartAPI } from '@/apis/cart'
 import { getMemberOrderPreAPI } from '@/apis/order'
 import type { OrderPreResult } from '@/types/order'
 import type { AddressParams } from '@/types/address'
-import { useAddressesStore } from '@/stores/modules/address'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -76,6 +75,11 @@ const popup = ref<{
   close: () => void
 }>()
 
+const popAddress = ref<AddressParams>()
+const showAddress = computed(() => {
+  return popAddress.value?.address || '请选择收获地址'
+})
+
 //弹出层渲染条件
 const popupName = ref<'address' | 'service'>()
 const openPopup = (name: typeof popupName.value) => {
@@ -120,10 +124,6 @@ const onAddCart = async (event: SkuPopupEvent) => {
 }
 
 //找到选择的地址
-const addressStore = useAddressesStore()
-const showAddress = computed(() => {
-  return addressStore.selectedAddress?.address || '请选择收货地址'
-})
 
 //立即购买事件
 
@@ -146,7 +146,6 @@ const onBuyNow = (event: SkuPopupEvent) => {
 onLoad(() => {
   getGoodsByIdData()
   getMemberOrderPreData()
-  console.log(selectedAddress.value?.address)
 })
 </script>
 
@@ -202,7 +201,7 @@ onLoad(() => {
         </view>
         <view class="item arrow">
           <text class="label">送至</text>
-          <text @tap="openPopup('address')" class="text ellipsis"> {{ showAddress }} </text>
+          <text @tap="openPopup('address')" class="text ellipsis"> {{}} </text>
         </view>
         <view class="item arrow">
           <text class="label">服务</text>
@@ -277,7 +276,11 @@ onLoad(() => {
 
   <!-- uni-ui弹出层 -->
   <uni-popup background-color="#fff" ref="popup" type="bottom">
-    <AddressPanel @close="popup?.close()" v-if="popupName === 'address'"></AddressPanel>
+    <AddressPanel
+      @close="popup?.close()"
+      ref="popAddress"
+      v-if="popupName === 'address'"
+    ></AddressPanel>
     <ServicePanel @close="popup?.close()" v-if="popupName === 'service'"></ServicePanel>
   </uni-popup>
 </template>

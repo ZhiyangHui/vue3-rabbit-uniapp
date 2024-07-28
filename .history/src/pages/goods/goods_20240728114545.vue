@@ -3,7 +3,7 @@ import type { GoodsResult } from '@/types/goods'
 import { getGoodsByIdAPI } from '../../apis/goods'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import AddressPanel from './components/AddressPanel.vue'
+// import AddressPanel from './components/AddressPanel.vue'
 import ServicePanel from './components/ServicePanel.vue'
 import type {
   SkuPopupEvent,
@@ -14,8 +14,6 @@ import { computed } from 'vue'
 import { postMemberCartAPI } from '@/apis/cart'
 import { getMemberOrderPreAPI } from '@/apis/order'
 import type { OrderPreResult } from '@/types/order'
-import type { AddressParams } from '@/types/address'
-import { useAddressesStore } from '@/stores/modules/address'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -119,12 +117,6 @@ const onAddCart = async (event: SkuPopupEvent) => {
   isShowSku.value = false
 }
 
-//找到选择的地址
-const addressStore = useAddressesStore()
-const showAddress = computed(() => {
-  return addressStore.selectedAddress?.address || '请选择收货地址'
-})
-
 //立即购买事件
 
 //找默认地址
@@ -146,7 +138,6 @@ const onBuyNow = (event: SkuPopupEvent) => {
 onLoad(() => {
   getGoodsByIdData()
   getMemberOrderPreData()
-  console.log(selectedAddress.value?.address)
 })
 </script>
 
@@ -202,7 +193,7 @@ onLoad(() => {
         </view>
         <view class="item arrow">
           <text class="label">送至</text>
-          <text @tap="openPopup('address')" class="text ellipsis"> {{ showAddress }} </text>
+          <text @tap="openPopup('address')" class="text ellipsis"> 请选择收获地址 </text>
         </view>
         <view class="item arrow">
           <text class="label">服务</text>

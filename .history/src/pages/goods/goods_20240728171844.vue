@@ -121,9 +121,7 @@ const onAddCart = async (event: SkuPopupEvent) => {
 
 //找到选择的地址
 const addressStore = useAddressesStore()
-const showAddress = computed(() => {
-  return addressStore.selectedAddress?.address || '请选择收货地址'
-})
+const showAddress = addressStore.selectedAddress
 
 //立即购买事件
 
@@ -146,7 +144,6 @@ const onBuyNow = (event: SkuPopupEvent) => {
 onLoad(() => {
   getGoodsByIdData()
   getMemberOrderPreData()
-  console.log(selectedAddress.value?.address)
 })
 </script>
 
@@ -277,7 +274,11 @@ onLoad(() => {
 
   <!-- uni-ui弹出层 -->
   <uni-popup background-color="#fff" ref="popup" type="bottom">
-    <AddressPanel @close="popup?.close()" v-if="popupName === 'address'"></AddressPanel>
+    <AddressPanel
+      @close="popup?.close()"
+      ref="popAddress"
+      v-if="popupName === 'address'"
+    ></AddressPanel>
     <ServicePanel @close="popup?.close()" v-if="popupName === 'service'"></ServicePanel>
   </uni-popup>
 </template>

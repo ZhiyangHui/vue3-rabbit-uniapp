@@ -11,10 +11,9 @@ const getMemberAddressData = async () => {
   addressList.value = res.result
 }
 
-const addressStore = useAddressesStore()
 //是否选择
 const selectedAddress = computed(() => {
-  return addressStore.selectedAddress || addressList.value.find((v) => v.isDefault)
+  return addressList.value.find((v) => v.isDefault)
 })
 
 //修改收获地址
@@ -27,11 +26,6 @@ const onChangeAddress = (item: AddressItem) => {
 const emit = defineEmits<{
   (event: 'close'): void
 }>()
-
-const closePop = () => {
-  console.log(selectedAddress.value?.address)
-  emit('close')
-}
 
 onMounted(() => {
   getMemberAddressData()
@@ -54,7 +48,8 @@ onMounted(() => {
       </view>
     </view>
     <view class="footer">
-      <view @tap="closePop" class="button primary">确定</view>
+      <view class="button primary"> 新建地址 </view>
+      <view class="button primary">确定</view>
     </view>
   </view>
 </template>

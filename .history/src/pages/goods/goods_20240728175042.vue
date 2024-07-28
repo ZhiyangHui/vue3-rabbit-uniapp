@@ -120,10 +120,11 @@ const onAddCart = async (event: SkuPopupEvent) => {
 }
 
 //找到选择的地址
-const addressStore = useAddressesStore()
-const showAddress = computed(() => {
-  return addressStore.selectedAddress?.address || '请选择收货地址'
-})
+const showAddress = ref<string>('请选择商品地址')
+const findSelectedAddress = async () => {
+  const addressStore = await useAddressesStore()
+  showAddress.value = addressStore.selectedAddress?.address
+}
 
 //立即购买事件
 

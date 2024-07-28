@@ -28,11 +28,6 @@ const emit = defineEmits<{
   (event: 'close'): void
 }>()
 
-const closePop = () => {
-  console.log(selectedAddress.value?.address)
-  emit('close')
-}
-
 onMounted(() => {
   getMemberAddressData()
 })
@@ -54,7 +49,8 @@ onMounted(() => {
       </view>
     </view>
     <view class="footer">
-      <view @tap="closePop" class="button primary">确定</view>
+      <view class="button primary"> 新建地址 </view>
+      <view class="button primary">确定</view>
     </view>
   </view>
 </template>
