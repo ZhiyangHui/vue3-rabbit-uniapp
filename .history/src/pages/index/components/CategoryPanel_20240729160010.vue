@@ -7,22 +7,24 @@ defineProps<{
 
 const categoryMap = [
   { index: 0, name: '居家' },
-  { index: 1, name: '美食' },
+  { index: 1, name: '' },
   { index: 2, name: '服饰' },
-  { index: 3, name: '母婴' },
-  { index: 4, name: '个护' },
-  { index: 5, name: '严选' },
-  { index: 6, name: '数码' },
-  { index: 7, name: '运动' },
-  { index: 8, name: '杂项' },
+  { index: 3, name: '服饰' },
+  { index: 4, name: '服饰' },
+  { index: 5, name: '服饰' },
+  { index: 6, name: '服饰' },
+  { index: 7, name: '服饰' },
+  { index: 8, name: '服饰' },
+  { index: 9, name: '服饰' },
+  { index: 10, name: '服饰' },
 ]
 
 //跳转到category页面
 const onSwitch = (categoryName: string) => {
-  const category = categoryMap.find((item) => item.name === categoryName)
-  const index = category?.index
+  console.log(categoryName)
+
   uni.switchTab({
-    url: `/pages/category/category?index=${index}`,
+    url: `/pages/category/category?categoryName=${categoryName}`,
   })
 }
 </script>

@@ -40,6 +40,8 @@ const isFinish = ref(false)
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
+  const index = wx.getStorageSync('selectedCategoryIndex')
+  console.log('Selected category index:', index)
 })
 </script>
 

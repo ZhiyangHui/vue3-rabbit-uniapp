@@ -19,10 +19,8 @@ const categoryMap = [
 
 //跳转到category页面
 const onSwitch = (categoryName: string) => {
-  const category = categoryMap.find((item) => item.name === categoryName)
-  const index = category?.index
   uni.switchTab({
-    url: `/pages/category/category?index=${index}`,
+    url: `/pages/category/category?categoryName=${categoryName}`,
   })
 }
 </script>

@@ -20,10 +20,20 @@ const categoryMap = [
 //跳转到category页面
 const onSwitch = (categoryName: string) => {
   const category = categoryMap.find((item) => item.name === categoryName)
-  const index = category?.index
-  uni.switchTab({
-    url: `/pages/category/category?index=${index}`,
-  })
+
+  if (category) {
+    const index = category.index
+    const url = `/pages/category/category?index=${index}`
+
+    // 调试输出
+    console.log(`Switching to URL: ${url}`)
+
+    uni.switchTab({
+      url,
+    })
+  } else {
+    console.error(`Category with name ${categoryName} not found`)
+  }
 }
 </script>
 

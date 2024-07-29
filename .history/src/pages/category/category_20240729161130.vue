@@ -8,6 +8,11 @@ import type { CategoryTopItem } from '@/types/category'
 import XtxSwiper from '@/components/XtxSwiper.vue'
 import PageSkeleton from './components/PageSkeleton.vue'
 
+//获取页面参数
+const query = defineProps<{
+  index: string
+}>()
+
 //获取轮播图数据
 const bannerList = ref<BannerItem[]>([])
 const getBannerData = async () => {
@@ -24,7 +29,7 @@ const getCategoryTopData = async () => {
   categoryList.value = res.result
 }
 
-//获取跳转的index
+//获取跳转的categoryName
 const query = defineProps<{
   index: string
 }>()
@@ -40,6 +45,7 @@ const isFinish = ref(false)
 onLoad(async () => {
   await Promise.all([getBannerData(), getCategoryTopData()])
   isFinish.value = true
+  console.log(query.index)
 })
 </script>
 
