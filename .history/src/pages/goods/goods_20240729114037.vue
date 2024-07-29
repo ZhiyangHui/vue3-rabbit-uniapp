@@ -12,8 +12,10 @@ import type {
 } from '@/components/vk-data-goods-sku-popup/vk-data-goods-sku-popup'
 import { computed } from 'vue'
 import { postMemberCartAPI } from '@/apis/cart'
-import { getMemberOrderPreAPI } from '@/apis/order'
-import type { OrderPreResult } from '@/types/order'
+// import { getMemberOrderPreAPI } from '@/apis/order'
+// import type { OrderPreResult } from '@/types/order'
+import { getMemberAddressAPI } from '@/apis/address'
+import type { AddressItem } from '@/types/address'
 import { useAddressesStore } from '@/stores/modules/address'
 
 // 获取屏幕边界到安全区域距离

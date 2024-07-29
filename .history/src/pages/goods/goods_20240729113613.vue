@@ -12,8 +12,10 @@ import type {
 } from '@/components/vk-data-goods-sku-popup/vk-data-goods-sku-popup'
 import { computed } from 'vue'
 import { postMemberCartAPI } from '@/apis/cart'
-import { getMemberOrderPreAPI } from '@/apis/order'
-import type { OrderPreResult } from '@/types/order'
+// import { getMemberOrderPreAPI } from '@/apis/order'
+// import type { OrderPreResult } from '@/types/order'
+import { getMemberAddressAPI } from '@/apis/address'
+import type { AddressItem } from '@/types/address'
 import { useAddressesStore } from '@/stores/modules/address'
 
 // 获取屏幕边界到安全区域距离
@@ -127,14 +129,25 @@ const showAddress = computed(() => {
 //立即购买事件
 
 //找默认地址
-const orderPre = ref<OrderPreResult>()
-const getMemberOrderPreData = async () => {
-  const res = await getMemberOrderPreAPI()
-  orderPre.value = res.result
+// const orderPre = ref<OrderPreResult>()
+// const getMemberOrderPreData = async () => {
+//   const res = await getMemberOrderPreAPI()
+//   orderPre.value = res.result
+// }
+
+// const selectedAddress = computed(() => {
+//   return orderPre.value?.userAddresses.find((v) => v.isDefault)
+// })
+
+//找默认地址
+const addressList = ref<AddressItem[]>()
+const getAddressData = async () => {
+  const res = await getMemberAddressAPI()
+  addressList.value = res.result
 }
 
 const selectedAddress = computed(() => {
-  return orderPre.value?.userAddresses.find((v) => v.isDefault)
+  return addressList.value?.find((v) => v.isDefault)
 })
 
 const onBuyNow = (event: SkuPopupEvent) => {
@@ -145,7 +158,9 @@ const onBuyNow = (event: SkuPopupEvent) => {
 
 onLoad(() => {
   getGoodsByIdData()
-  getMemberOrderPreData()
+  getAddressData()
+  // getMemberOrderPreData()
+  console.log(addressList.value)
 })
 </script>
 

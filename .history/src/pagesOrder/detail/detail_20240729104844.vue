@@ -39,9 +39,6 @@ const onCopy = (id: string) => {
 // 获取页面参数
 const query = defineProps<{
   id: string
-  skuId?: string
-  count?: string
-  addressId?: string
 }>()
 
 //获取页面栈
@@ -201,11 +198,7 @@ const onOrderDelete = () => {
           <!-- 订单状态文字 -->
           <view class="status"> {{ orderStateList[order!.orderState].text }}</view>
           <view class="button-group">
-            <navigator
-              class="button"
-              :url="`/pagesOrder/create/create?skuId=${query.skuId}&count=${query.count}&addressId=${query.addressId}`"
-              hover-class="none"
-            >
+            <navigator class="button" :url="`/pagesOrder/create/create`" hover-class="none">
               再次购买
             </navigator>
             <!-- 待发货状态：模拟发货,开发期间使用,用于修改订单状态为已发货 -->

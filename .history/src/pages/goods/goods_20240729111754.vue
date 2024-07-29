@@ -133,10 +133,9 @@ const getMemberOrderPreData = async () => {
   orderPre.value = res.result
 }
 
-const selectedAddress = computed(() => {
-  return orderPre.value?.userAddresses.find((v) => v.isDefault)
+const selectedAddress = computed(async () => {
+  return await orderPre.value?.userAddresses.find((v) => v.isDefault)
 })
-
 const onBuyNow = (event: SkuPopupEvent) => {
   uni.navigateTo({
     url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${selectedAddress.value?.id}`,
@@ -146,6 +145,7 @@ const onBuyNow = (event: SkuPopupEvent) => {
 onLoad(() => {
   getGoodsByIdData()
   getMemberOrderPreData()
+  console.log(selectedAddress.value?.address)
 })
 </script>
 

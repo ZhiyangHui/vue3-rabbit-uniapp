@@ -39,9 +39,6 @@ const onCopy = (id: string) => {
 // 获取页面参数
 const query = defineProps<{
   id: string
-  skuId?: string
-  count?: string
-  addressId?: string
 }>()
 
 //获取页面栈
@@ -203,7 +200,7 @@ const onOrderDelete = () => {
           <view class="button-group">
             <navigator
               class="button"
-              :url="`/pagesOrder/create/create?skuId=${query.skuId}&count=${query.count}&addressId=${query.addressId}`"
+              :url="`/pagesOrder/create/create?skuId=${order.skus}`"
               hover-class="none"
             >
               再次购买

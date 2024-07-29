@@ -127,25 +127,25 @@ const showAddress = computed(() => {
 //立即购买事件
 
 //找默认地址
-const orderPre = ref<OrderPreResult>()
-const getMemberOrderPreData = async () => {
-  const res = await getMemberOrderPreAPI()
-  orderPre.value = res.result
-}
+// const orderPre = ref<OrderPreResult>()
+// const getMemberOrderPreData = async () => {
+//   const res = await getMemberOrderPreAPI()
+//   orderPre.value = res.result
+// }
 
-const selectedAddress = computed(() => {
-  return orderPre.value?.userAddresses.find((v) => v.isDefault)
-})
-
+// const selectedAddress = computed(() => {
+//   return orderPre.value?.userAddresses.find((v) => v.isDefault)
+// })
 const onBuyNow = (event: SkuPopupEvent) => {
   uni.navigateTo({
-    url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}&addressId=${selectedAddress.value?.id}`,
+    url: `/pagesOrder/create/create?skuId=${event._id}&count=${event.buy_num}`,
   })
 }
 
 onLoad(() => {
   getGoodsByIdData()
-  getMemberOrderPreData()
+  // getMemberOrderPreData()
+  // console.log(selectedAddress.value?.address)
 })
 </script>
 

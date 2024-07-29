@@ -203,7 +203,7 @@ const onOrderDelete = () => {
           <view class="button-group">
             <navigator
               class="button"
-              :url="`/pagesOrder/create/create?skuId=${query.skuId}&count=${query.count}&addressId=${query.addressId}`"
+              :url="`/pagesOrder/create/create?skuId=${query.id}`"
               hover-class="none"
             >
               再次购买
