@@ -51,11 +51,8 @@ const onOrderConfirm = (id: string) => {
     content: '为保障您的权益，请收到货并确认无误之后，再确认收获',
     success: async (success) => {
       if (success.confirm) {
-        //成功提示
-        uni.showToast({ title: '收获成功' })
-        //更新订单状态
-        const order = orderList.value.find((v) => v.id === id)
-        order!.orderState = OrderState.DaiPingJia
+        const res = await putMemberOrderReceiptByIdAPI(query.id)
+        order.value = res.result
       }
     },
   })
@@ -114,10 +111,7 @@ onMounted(() => {
             再次购买
           </navigator>
           <!-- 待收货状态: 展示确认收货 -->
-          <view
-            v-if="item.orderState === OrderState.DaiShouHuo"
-            @tap="onOrderConfirm(item.id)"
-            class="button primary"
+          <view v-if="item.orderState === OrderState.DaiShouHuo" class="button primary"
             >确认收货</view
           >
         </template>

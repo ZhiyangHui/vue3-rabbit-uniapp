@@ -52,7 +52,7 @@ const onOrderConfirm = (id: string) => {
     success: async (success) => {
       if (success.confirm) {
         //成功提示
-        uni.showToast({ title: '收获成功' })
+        uni.showToast({ title: '支付成功' })
         //更新订单状态
         const order = orderList.value.find((v) => v.id === id)
         order!.orderState = OrderState.DaiPingJia
@@ -114,10 +114,7 @@ onMounted(() => {
             再次购买
           </navigator>
           <!-- 待收货状态: 展示确认收货 -->
-          <view
-            v-if="item.orderState === OrderState.DaiShouHuo"
-            @tap="onOrderConfirm(item.id)"
-            class="button primary"
+          <view v-if="item.orderState === OrderState.DaiShouHuo" class="button primary"
             >确认收货</view
           >
         </template>

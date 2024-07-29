@@ -55,6 +55,7 @@ const onOrderConfirm = (id: string) => {
         uni.showToast({ title: '收获成功' })
         //更新订单状态
         const order = orderList.value.find((v) => v.id === id)
+
         order!.orderState = OrderState.DaiPingJia
       }
     },

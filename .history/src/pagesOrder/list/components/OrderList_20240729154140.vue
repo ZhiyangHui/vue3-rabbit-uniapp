@@ -55,7 +55,12 @@ const onOrderConfirm = (id: string) => {
         uni.showToast({ title: '收获成功' })
         //更新订单状态
         const order = orderList.value.find((v) => v.id === id)
-        order!.orderState = OrderState.DaiPingJia
+        if (order) {
+          // 更新订单状态
+          order.orderState = OrderState.DaiPingJia
+        } else {
+          console.error(`Order with id ${id} not found`)
+        }
       }
     },
   })
@@ -116,7 +121,7 @@ onMounted(() => {
           <!-- 待收货状态: 展示确认收货 -->
           <view
             v-if="item.orderState === OrderState.DaiShouHuo"
-            @tap="onOrderConfirm(item.id)"
+            @tap="onOrderConfirm"
             class="button primary"
             >确认收货</view
           >

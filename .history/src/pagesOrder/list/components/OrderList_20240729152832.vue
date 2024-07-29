@@ -116,7 +116,7 @@ onMounted(() => {
           <!-- 待收货状态: 展示确认收货 -->
           <view
             v-if="item.orderState === OrderState.DaiShouHuo"
-            @tap="onOrderConfirm(item.id)"
+            @tap="onOrderConfirm"
             class="button primary"
             >确认收货</view
           >

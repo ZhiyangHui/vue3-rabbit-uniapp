@@ -20,10 +20,7 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
 // 猜你喜欢
 const { guessRef, onScrollTolower } = useGuessList()
 // 弹出层组件
-const popup = ref<{
-  open: (type?: UniHelper.UniPopupType) => void
-  close: () => void
-}>()
+const popup = ref<UniHelper.UniPopupInstance>()
 // 取消原因列表
 const reasonList = ref([
   '商品无货',
@@ -156,9 +153,8 @@ const cancelReason = reason.value
 const onCancelOrder = () => {
   getMemberOrderCancelByIdAPI(order.value!.id, { cancelReason })
   uni.showToast({ icon: 'success', title: '取消成功' })
-  popup.value?.close()
   setTimeout(() => {
-    uni.navigateBack()
+    uni.redirectTo({ url: `/pages/cart/cart` })
   }, 400)
 }
 
@@ -369,7 +365,7 @@ const onOrderDelete = () => {
       </view>
       <view class="footer">
         <view class="button" @tap="popup?.close?.()">取消</view>
-        <view class="button primary" @tap="onCancelOrder">确认</view>
+        <view class="button primary" @tap="onCancelOrder" @tap="popup.close">确认</view>
       </view>
     </view>
   </uni-popup>

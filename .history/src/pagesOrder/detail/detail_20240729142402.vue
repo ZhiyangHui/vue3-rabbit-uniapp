@@ -156,9 +156,11 @@ const cancelReason = reason.value
 const onCancelOrder = () => {
   getMemberOrderCancelByIdAPI(order.value!.id, { cancelReason })
   uni.showToast({ icon: 'success', title: '取消成功' })
-  popup.value?.close()
+  if (popup.value !== undefined) {
+    popup.value!.close()
+  }
   setTimeout(() => {
-    uni.navigateBack()
+    uni.redirectTo({ url: `/pages/cart/cart` })
   }, 400)
 }
 
